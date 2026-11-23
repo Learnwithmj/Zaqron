@@ -1,0 +1,348 @@
+@import "tailwindcss";
+
+/* ───────────────────────── ZAQRON design tokens ───────────────────────── */
+@theme {
+  --color-bg: #080b14;
+  --color-bg-2: #0d1220;
+  --color-card: #111827;
+  --color-elevated: #172033;
+  --color-blue: #3b82f6;
+  --color-blue-hover: #2563eb;
+  --color-blue-strong: #2563eb;
+  --color-blue-deep: #1d4ed8;
+  --color-purple: #8b5cf6;
+  --color-purple-soft: #a78bfa;
+  --color-blue-soft: #93c5fd;
+  --color-fg: #f8fafc;
+  --color-muted: #94a3b8;
+  --color-subtle: #7a8ba3;
+  --color-line: #263247;
+  --color-line-strong: #33415a;
+  --color-success: #34d399;
+  --color-danger: #f87171;
+
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --radius-card: 16px;
+  --radius-btn: 11px;
+
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --breakpoint-xs: 400px;
+}
+
+:root {
+  color-scheme: dark;
+  --gradient-brand: linear-gradient(120deg, #3b82f6 0%, #8b5cf6 100%);
+  --header-h: 72px;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 16px);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv11", "ss01";
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: rgb(59 130 246 / 0.35);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ───────────────────────── Utilities ───────────────────────── */
+@utility container-z {
+  width: 100%;
+  max-width: 1360px;
+  margin-inline: auto;
+  padding-inline: 20px;
+  @media (width >= 48rem) {
+    padding-inline: 32px;
+  }
+  @media (width >= 80rem) {
+    padding-inline: 40px;
+  }
+}
+
+@utility section-y {
+  padding-block: 72px;
+  @media (width >= 64rem) {
+    padding-block: 120px;
+  }
+}
+
+@utility text-gradient {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-blue-soft);
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(38 50 71 / 0.45) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(38 50 71 / 0.45) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+@utility hairline-top {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgb(59 130 246 / 0.7), rgb(139 92 246 / 0.7), transparent);
+    opacity: var(--hairline-opacity, 0.6);
+    transition: opacity 0.3s;
+  }
+}
+
+/* Headline defaults */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  text-wrap: balance;
+}
+p {
+  text-wrap: pretty;
+}
+
+/* ───────────────────────── Scroll reveal ─────────────────────────
+   Content is fully visible by default (no JS, crawlers, reduced motion).
+   Only when JS is running *and* motion is allowed do we hide-then-reveal. */
+@media (prefers-reduced-motion: no-preference) {
+  html.js [data-reveal]:not([data-shown]) {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  html.js [data-reveal] {
+    transition:
+      opacity 0.7s var(--ease-out-expo),
+      transform 0.7s var(--ease-out-expo);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+}
+
+/* Hero entrance — CSS only so the LCP headline is painted immediately */
+@keyframes z-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes z-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes z-spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes z-marquee {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+@keyframes z-pulse-dot {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@layer components {
+@media (prefers-reduced-motion: no-preference) {
+  .anim-rise {
+    animation: z-rise 0.8s var(--ease-out-expo) both;
+    animation-delay: var(--d, 0ms);
+  }
+  .anim-fade {
+    animation: z-fade 1.2s ease both;
+    animation-delay: var(--d, 0ms);
+  }
+  .anim-spin-slow {
+    animation: z-spin-slow 60s linear infinite;
+  }
+  .anim-marquee {
+    animation: z-marquee 40s linear infinite;
+  }
+  .anim-marquee:hover {
+    animation-play-state: paused;
+  }
+  .anim-pulse-dot {
+    animation: z-pulse-dot 2.4s ease-in-out infinite;
+  }
+}
+
+/* Collapsible (accordion / mobile menu) — animates height without JS measurement */
+.collapse-grid {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s var(--ease-out-expo);
+}
+.collapse-grid.is-open {
+  grid-template-rows: 1fr;
+}
+@media (prefers-reduced-motion: reduce) {
+  .collapse-grid {
+    transition: none;
+  }
+}
+
+@keyframes z-menu-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -6px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .anim-menu-in {
+    animation: z-menu-in 0.22s var(--ease-out-expo) both;
+  }
+}
+
+/* Form controls */
+.field-input {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--color-line);
+  background: var(--color-bg-2);
+  padding: 0.75rem 0.9rem;
+  font-size: 1rem;
+  color: var(--color-fg);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+.field-input::placeholder {
+  color: var(--color-subtle);
+}
+.field-input:hover {
+  border-color: var(--color-line-strong);
+}
+.field-input:focus {
+  outline: none;
+  border-color: var(--color-blue);
+  box-shadow: 0 0 0 3px rgb(59 130 246 / 0.25);
+  background: var(--color-card);
+}
+.field-input[aria-invalid="true"] {
+  border-color: var(--color-danger);
+}
+select.field-input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%2394A3B8' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.8rem center;
+  padding-right: 2.5rem;
+}
+select.field-input option {
+  background: var(--color-card);
+}
+
+/* Article typography */
+.prose-z {
+  color: #cbd5e1;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+.prose-z > * + * {
+  margin-top: 1.25em;
+}
+.prose-z h2 {
+  color: var(--color-fg);
+  font-size: 1.75rem;
+  line-height: 1.25;
+  margin-top: 2.2em;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+.prose-z h3 {
+  color: var(--color-fg);
+  font-size: 1.3rem;
+  margin-top: 1.8em;
+  font-weight: 600;
+}
+.prose-z ul,
+.prose-z ol {
+  padding-left: 1.25em;
+}
+.prose-z ul {
+  list-style: disc;
+}
+.prose-z ol {
+  list-style: decimal;
+}
+.prose-z li + li {
+  margin-top: 0.5em;
+}
+.prose-z li::marker {
+  color: var(--color-blue);
+}
+.prose-z strong {
+  color: var(--color-fg);
+  font-weight: 600;
+}
+.prose-z blockquote {
+  border-left: 2px solid var(--color-purple);
+  padding: 0.25em 0 0.25em 1.25em;
+  color: var(--color-fg);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+.prose-z a {
+  color: var(--color-blue-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+}

@@ -1,0 +1,148 @@
+import type { Article } from "@/types/content";
+
+const editorial = { name: "Zaqron Editorial", role: "Technology & Growth Team" };
+
+/**
+ * Local articles. When Sanity is configured (see lib/content.ts) posts are
+ * read from the CMS instead and this file acts as a fallback/seed.
+ */
+export const articles: Article[] = [
+  {
+    slug: "automation-first-operations",
+    title: "Automation-First: How to Decide What to Automate Before You Build",
+    excerpt:
+      "Not every process deserves automation. A practical framework for ranking opportunities by volume, effort, risk and value — before you write a single workflow.",
+    category: "Automation",
+    author: editorial,
+    publishedAt: "2026-11-12",
+    featured: true,
+    cover: { alt: "Abstract connected workflow nodes", variant: 0 },
+    tags: ["automation", "operations", "ai"],
+    body: [
+      { type: "p", text: "Automation projects rarely fail because the technology doesn't work. They fail because the wrong process was automated, the edge cases were ignored, or nobody owned the result once it went live. An automation-first mindset is not about automating everything — it's about asking, for every process, whether a person really needs to be doing this." },
+      { type: "h2", text: "Start with an honest inventory" },
+      { type: "p", text: "Before choosing tools, list the recurring processes in your business. For each, capture four things: how often it happens, how long it takes each time, how often mistakes occur, and what a mistake costs. You'll quickly find that a handful of processes account for most of the manual effort." },
+      { type: "ul", items: [
+        "Volume — how many times per week or month does this happen?",
+        "Effort — how many minutes of skilled time does each instance take?",
+        "Error rate — how often is it done wrong, and what does fixing it cost?",
+        "Risk — what happens if an automated version makes a mistake?",
+      ] },
+      { type: "h2", text: "Rank by value and risk, not by excitement" },
+      { type: "p", text: "The most exciting automation is often not the most valuable one. An AI agent that writes proposals is impressive; a reliable workflow that routes every new lead to the right salesperson within a minute may be worth far more. Plot your processes on two axes — value (volume × effort × error cost) and risk — and start in the high-value, low-risk corner." },
+      { type: "quote", text: "The first automation should pay for the second. Pick something boring, frequent and measurable." },
+      { type: "h2", text: "Decide where humans stay in the loop" },
+      { type: "p", text: "Modern AI makes it possible to automate steps that used to require judgement: reading an email, classifying a request, extracting data from a document. That doesn't mean a human should disappear. For high-impact steps, design the automation to draft, recommend or prepare — and let a person approve. As confidence grows and you have evidence of accuracy, you can widen what runs unattended." },
+      { type: "h2", text: "Design for failure from day one" },
+      { type: "p", text: "Every automation will eventually meet an input it doesn't expect: a malformed form submission, an API outage, a customer who replies in an unexpected language. Good automations retry safely, log what happened and alert a named owner with enough context to fix it. Silent failure is the most expensive kind." },
+      { type: "ol", items: [
+        "Give every workflow an owner and a short description of what it does.",
+        "Log every run with inputs, outputs and status.",
+        "Route failures to a person, not a shared inbox nobody reads.",
+        "Review exceptions monthly — they tell you what to improve next.",
+      ] },
+      { type: "h2", text: "Measure what changed" },
+      { type: "p", text: "Before launch, record a baseline: how long the process took, how often it went wrong, how quickly customers got a response. After launch, measure the same things. This is how you prove value internally, and how you decide which process to automate next." },
+      { type: "p", text: "Automation-first is a habit, not a project. Teams that build it ask the question every time a new process appears — and gradually spend more of their time on the work only people can do." },
+    ],
+  },
+  {
+    slug: "ai-agents-in-production",
+    title: "AI Agents in Production: Guardrails That Matter More Than the Model",
+    excerpt:
+      "The model is rarely the bottleneck. Scope, tools, evaluation and hand-off design determine whether an AI agent becomes a reliable teammate or a liability.",
+    category: "AI",
+    author: editorial,
+    publishedAt: "2026-11-03",
+    cover: { alt: "Abstract layered agent architecture", variant: 1 },
+    tags: ["ai agents", "llm", "engineering"],
+    body: [
+      { type: "p", text: "It has never been easier to build an impressive AI agent demo. It is still hard to run one reliably in front of customers. The gap between the two is almost never the choice of model. It's the engineering around it." },
+      { type: "h2", text: "Give every agent one job" },
+      { type: "p", text: "General-purpose agents are hard to evaluate and harder to trust. An agent that qualifies inbound leads, or one that answers order-status questions, has a clear definition of success. Narrow scope makes behaviour predictable, makes testing possible and makes failures easier to diagnose." },
+      { type: "h2", text: "Tools are permissions" },
+      { type: "p", text: "An agent's capabilities are defined by the tools you give it: read the CRM, check a calendar, create a ticket, send an email. Treat each tool like a permission granted to a new employee. Read-only tools are low risk. Tools that change data, spend money or contact customers deserve tighter limits, confirmation steps or human approval." },
+      { type: "ul", items: [
+        "Prefer specific tools (\"get_order_status\") over generic ones (\"run_sql\").",
+        "Validate every tool input on the server — never trust the model's arguments blindly.",
+        "Scope credentials so the agent can only reach the data it needs.",
+      ] },
+      { type: "h2", text: "Ground answers in approved knowledge" },
+      { type: "p", text: "Agents that answer questions about your products or policies should retrieve from a curated knowledge base rather than rely on what the model remembers. Retrieval keeps answers current and lets you trace every response back to a source document — invaluable when something goes wrong." },
+      { type: "h2", text: "Evaluate before and after launch" },
+      { type: "p", text: "Build an evaluation set from real scenarios: typical requests, tricky edge cases, attempts to push the agent outside its scope. Run it before every change to prompts, tools or models. In production, track resolution rate, escalation rate and user feedback, and add every notable failure back into the evaluation set." },
+      { type: "quote", text: "If you can't measure an agent's quality, you can't safely change it." },
+      { type: "h2", text: "Design the hand-off" },
+      { type: "p", text: "The best agents know when to stop. Define clear conditions for escalating to a person — low confidence, sensitive topics, frustrated users, high-value actions — and pass along the full context so the customer never has to repeat themselves. A graceful hand-off builds more trust than an agent that tries to answer everything." },
+      { type: "h2", text: "Stay model-agnostic" },
+      { type: "p", text: "Models improve and prices change quickly. Keep prompts, tools and evaluation separate from any single provider so you can switch when a better option appears — and use your evaluation set to prove the switch is an improvement." },
+    ],
+  },
+  {
+    slug: "website-performance-revenue",
+    title: "Why Website Performance Is a Revenue Decision, Not a Technical Detail",
+    excerpt:
+      "Core Web Vitals, crawlability and conversion paths sit at the intersection of engineering and growth. Here's how to treat speed as a business metric.",
+    category: "Engineering",
+    author: editorial,
+    publishedAt: "2026-10-21",
+    cover: { alt: "Abstract performance waveform", variant: 2 },
+    tags: ["performance", "web development", "seo"],
+    body: [
+      { type: "p", text: "Most businesses judge a new website by how it looks in a review meeting on a fast laptop. Customers judge it on a mid-range phone, on a patchy connection, in the three seconds before they decide whether to stay. That gap is where revenue leaks." },
+      { type: "h2", text: "Speed shapes every channel" },
+      { type: "p", text: "Page experience influences organic visibility, paid landing-page quality, and the conversion rate of every visitor you've already paid to acquire. A slow site quietly taxes your entire marketing budget." },
+      { type: "h2", text: "Know the three numbers" },
+      { type: "ul", items: [
+        "Largest Contentful Paint (LCP) — how quickly the main content appears. Aim for 2.5 seconds or less.",
+        "Interaction to Next Paint (INP) — how quickly the page responds to taps and clicks. Aim for 200 milliseconds or less.",
+        "Cumulative Layout Shift (CLS) — how much the layout jumps while loading. Aim for 0.1 or less.",
+      ] },
+      { type: "p", text: "Measure them with field data from real users, not just a lab test. Search Console and your analytics stack can show how actual visitors experience the site." },
+      { type: "h2", text: "Where speed is usually lost" },
+      { type: "ol", items: [
+        "Oversized images served without modern formats or responsive sizes.",
+        "Third-party scripts — chat widgets, trackers, A/B tools — loaded eagerly on every page.",
+        "Heavy themes and page builders shipping code for features you don't use.",
+        "Web fonts loaded in ways that block text rendering.",
+        "Animations that run on the main thread and delay interaction.",
+      ] },
+      { type: "h2", text: "Set a performance budget" },
+      { type: "p", text: "Treat performance like any other requirement. Agree targets before design starts, test them on every release, and make adding a new script a decision with an owner rather than a quiet copy-paste. A budget turns performance from an occasional clean-up into a habit." },
+      { type: "quote", text: "Every script on your website should be able to justify its cost in milliseconds." },
+      { type: "h2", text: "Performance and design are not opposites" },
+      { type: "p", text: "Premium, animated, visually rich websites can be fast. The key is to keep the critical content — headline, value proposition, primary call to action — instantly visible, and load enhancements like 3D visuals and motion progressively, only on devices that can handle them." },
+    ],
+  },
+  {
+    slug: "connected-growth-systems",
+    title: "From Campaigns to Systems: Building a Connected Growth Engine",
+    excerpt:
+      "When marketing, sales and data operate separately, growth stalls. How to connect acquisition, follow-up and attribution into one measurable system.",
+    category: "Growth",
+    author: editorial,
+    publishedAt: "2026-10-08",
+    cover: { alt: "Abstract growth curve with connected points", variant: 3 },
+    tags: ["growth", "crm", "lead generation"],
+    body: [
+      { type: "p", text: "Many businesses treat growth as a series of campaigns: a new ad set, a new landing page, a new email blast. Each campaign may perform reasonably well, but nothing compounds. The alternative is to think in systems — connected parts that improve each other over time." },
+      { type: "h2", text: "The four parts of a growth system" },
+      { type: "ul", items: [
+        "Acquisition — the channels that bring the right people to you.",
+        "Conversion — the pages, offers and conversations that turn interest into action.",
+        "Follow-up — the speed and consistency of what happens after someone raises their hand.",
+        "Measurement — the data that connects all of the above to revenue.",
+      ] },
+      { type: "h2", text: "Fix measurement first" },
+      { type: "p", text: "If you can't connect a closed deal back to the campaign that started it, every optimisation is a guess. Clean conversion events, consistent UTM conventions and a CRM that records lead source are the unglamorous foundation of growth." },
+      { type: "h2", text: "Speed is a growth lever" },
+      { type: "p", text: "Prospects who enquire are usually comparing options. The business that responds first with something genuinely useful has an advantage. Automated first responses, instant booking links and smart routing close the gap between interest and conversation." },
+      { type: "quote", text: "The cheapest lead is the one you already paid for — and then followed up properly." },
+      { type: "h2", text: "Close the loop" },
+      { type: "p", text: "Feed sales outcomes back into marketing. When ad platforms receive signals about which leads became customers, their targeting improves. When marketing sees which content influences deals, the editorial calendar improves. Closed-loop data is what turns a set of channels into a system." },
+      { type: "h2", text: "Run a weekly experiment cadence" },
+      { type: "p", text: "Systems improve through deliberate iteration. Keep a shared backlog of hypotheses across creative, audience, landing page, offer and follow-up. Run a small number of well-designed tests each week, record the results and keep what works." },
+      { type: "p", text: "Growth systems take longer to set up than a single campaign. But once they're in place, each improvement builds on the last — which is exactly what campaigns alone can't do." },
+    ],
+  },
+];

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 134 23" role="img" aria-label="ZAQRON"><title>ZAQRON</title>
+  <g fill="none" stroke="#080B14" stroke-width="3.2" stroke-linejoin="round">
+    <path d="M0 1.6H14L0 18.4H14"/>
+    <path d="M21.6 20L26.5 1.6H29.5L34.4 20M24.2 13H31.8"/>
+    <circle cx="52" cy="10" r="8.4"/><path d="M55 13L61.5 19.5"/>
+    <path d="M70.6 20V1.6H77.5A4.9 4.9 0 0 1 77.5 11.4H70.6M77 11.4L82.6 20"/>
+    <circle cx="100" cy="10" r="8.4"/>
+    <path d="M117.6 20V1.6L130.4 18.4V0"/>
+  </g></svg>

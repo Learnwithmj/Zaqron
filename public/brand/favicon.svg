@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Zaqron"><title>Zaqron</title><defs><linearGradient id="zg" x1="8" y1="10" x2="40" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#3B82F6"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs><rect width="512" height="512" rx="112" fill="#080B14"/><rect x="1.5" y="1.5" width="509" height="509" rx="110.5" fill="none" stroke="#263247" stroke-width="3"/><g transform="translate(48 48) scale(8.667)">
+  <path d="M16 12H34L14 36H32" fill="none" stroke="url(#zg)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="8.5" cy="12" r="3.75" fill="#3B82F6"/>
+  <circle cx="39.5" cy="36" r="3.75" fill="#8B5CF6"/></g></svg>
