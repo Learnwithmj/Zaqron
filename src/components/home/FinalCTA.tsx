@@ -18,9 +18,9 @@ export function FinalCTA({
         <div data-reveal className="relative isolate overflow-hidden rounded-[24px] border border-line bg-card px-6 py-16 text-center sm:px-12 lg:py-24">
           <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
             <div className="bg-grid absolute inset-0 opacity-50 [mask-image:radial-gradient(ellipse_60%_70%_at_50%_0%,black,transparent)]" />
-            <div className="absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse,rgb(59_130_246/0.28),transparent_65%)]" />
-            <div className="absolute bottom-0 right-0 h-[300px] w-[400px] translate-x-1/4 translate-y-1/3 rounded-full bg-[radial-gradient(ellipse,rgb(139_92_246/0.18),transparent_65%)]" />
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue/60 to-transparent" />
+            <div className="absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse,rgb(20_203_212/0.28),transparent_65%)]" />
+            <div className="absolute bottom-0 right-0 h-[300px] w-[400px] translate-x-1/4 translate-y-1/3 rounded-full bg-[radial-gradient(ellipse,rgb(5_159_219/0.18),transparent_65%)]" />
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
           </div>
           <LogoSymbol className="mx-auto h-12 w-12" />
           <h2 id="cta-title" className="mx-auto mt-8 max-w-3xl text-[2.25rem] font-semibold leading-[1.05] tracking-[-0.035em] sm:text-5xl lg:text-[3.75rem]">

@@ -6,13 +6,13 @@
   --color-bg-2: #0d1220;
   --color-card: #111827;
   --color-elevated: #172033;
-  --color-blue: #3b82f6;
-  --color-blue-hover: #2563eb;
-  --color-blue-strong: #2563eb;
-  --color-blue-deep: #1d4ed8;
-  --color-purple: #8b5cf6;
-  --color-purple-soft: #a78bfa;
-  --color-blue-soft: #93c5fd;
+  --color-accent: #14cbd4;
+  --color-accent-hover: #14cbd4;
+  --color-accent-strong: #14cbd4;
+  --color-accent-deep: #2aebcc;
+  --color-accent-2: #059fdb;
+  --color-accent-2-soft: #2aebcc;
+  --color-accent-soft: #7fe9ea;
   --color-fg: #f8fafc;
   --color-muted: #94a3b8;
   --color-subtle: #7a8ba3;
@@ -35,7 +35,7 @@
 
 :root {
   color-scheme: dark;
-  --gradient-brand: linear-gradient(120deg, #3b82f6 0%, #8b5cf6 100%);
+  --gradient-brand: linear-gradient(120deg, #2aebcc 0%, #14cbd4 50%, #059fdb 100%);
   --header-h: 72px;
 }
 
@@ -54,12 +54,12 @@ body {
 }
 
 ::selection {
-  background: rgb(59 130 246 / 0.35);
+  background: rgb(20 203 212 / 0.35);
   color: #fff;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-blue);
+  outline: 2px solid var(--color-accent);
   outline-offset: 3px;
   border-radius: 6px;
 }
@@ -104,7 +104,7 @@ body {
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-blue-soft);
+  color: var(--color-accent-soft);
 }
 
 @utility bg-grid {
@@ -121,7 +121,7 @@ body {
     position: absolute;
     inset: 0 0 auto 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgb(59 130 246 / 0.7), rgb(139 92 246 / 0.7), transparent);
+    background: linear-gradient(90deg, transparent, rgb(20 203 212 / 0.7), rgb(5 159 219 / 0.7), transparent);
     opacity: var(--hairline-opacity, 0.6);
     transition: opacity 0.3s;
   }
@@ -271,8 +271,8 @@ p {
 }
 .field-input:focus {
   outline: none;
-  border-color: var(--color-blue);
-  box-shadow: 0 0 0 3px rgb(59 130 246 / 0.25);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgb(20 203 212 / 0.25);
   background: var(--color-card);
 }
 .field-input[aria-invalid="true"] {
@@ -326,14 +326,14 @@ select.field-input option {
   margin-top: 0.5em;
 }
 .prose-z li::marker {
-  color: var(--color-blue);
+  color: var(--color-accent);
 }
 .prose-z strong {
   color: var(--color-fg);
   font-weight: 600;
 }
 .prose-z blockquote {
-  border-left: 2px solid var(--color-purple);
+  border-left: 2px solid var(--color-accent-2);
   padding: 0.25em 0 0.25em 1.25em;
   color: var(--color-fg);
   font-family: var(--font-display);
@@ -341,7 +341,7 @@ select.field-input option {
   line-height: 1.5;
 }
 .prose-z a {
-  color: var(--color-blue-soft);
+  color: var(--color-accent-soft);
   text-decoration: underline;
   text-underline-offset: 3px;
 }

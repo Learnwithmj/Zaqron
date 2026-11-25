@@ -35,33 +35,33 @@ export function HeroStatic({ className }: { className?: string }) {
     <svg viewBox={`0 0 ${SIZE} ${SIZE}`} className={className} aria-hidden="true">
       <defs>
         <linearGradient id="hs-edge" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#60A5FA" />
-          <stop offset="1" stopColor="#8B5CF6" />
+          <stop offset="0" stopColor="#2AEBCC" />
+          <stop offset="1" stopColor="#059FDB" />
         </linearGradient>
         <radialGradient id="hs-core" cx="50%" cy="50%" r="50%">
-          <stop offset="0" stopColor="#3B82F6" stopOpacity="0.55" />
-          <stop offset="0.45" stopColor="#3B82F6" stopOpacity="0.12" />
-          <stop offset="1" stopColor="#3B82F6" stopOpacity="0" />
+          <stop offset="0" stopColor="#14CBD4" stopOpacity="0.55" />
+          <stop offset="0.45" stopColor="#14CBD4" stopOpacity="0.12" />
+          <stop offset="1" stopColor="#14CBD4" stopOpacity="0" />
         </radialGradient>
       </defs>
 
       <circle cx={C} cy={C} r={R * 1.25} fill="url(#hs-core)" />
 
       {/* orbit rings */}
-      <g fill="none" stroke="#3B82F6" strokeOpacity="0.22">
+      <g fill="none" stroke="#14CBD4" strokeOpacity="0.22">
         <ellipse cx={C} cy={C} rx={R * 1.55} ry={R * 0.48} transform={`rotate(-18 ${C} ${C})`} />
         <ellipse cx={C} cy={C} rx={R * 1.32} ry={R * 0.38} transform={`rotate(24 ${C} ${C})`} strokeOpacity="0.14" strokeDasharray="2 6" />
       </g>
-      <circle cx={C + R * 1.47} cy={C - R * 0.5} r="4" fill="#93C5FD" />
-      <circle cx={C - R * 1.2} cy={C - R * 0.62} r="3" fill="#A78BFA" />
+      <circle cx={C + R * 1.47} cy={C - R * 0.5} r="4" fill="#7FE9EA" />
+      <circle cx={C - R * 1.2} cy={C - R * 0.62} r="3" fill="#2AEBCC" />
 
       {/* particles */}
       {g.particles.map((p, k) => (
-        <circle key={k} cx={r2(p.x)} cy={r2(p.y)} r={r2(p.r)} fill="#93C5FD" opacity={r2(p.o)} />
+        <circle key={k} cx={r2(p.x)} cy={r2(p.y)} r={r2(p.r)} fill="#7FE9EA" opacity={r2(p.o)} />
       ))}
 
       {/* inner core */}
-      <g stroke="#A78BFA" strokeOpacity="0.35" strokeWidth="1">
+      <g stroke="#2AEBCC" strokeOpacity="0.35" strokeWidth="1">
         {g.ie.map(([a, b], k) => (
           <line key={k} x1={r2(g.i[a].x)} y1={r2(g.i[a].y)} x2={r2(g.i[b].x)} y2={r2(g.i[b].y)} />
         ))}
@@ -89,7 +89,7 @@ export function HeroStatic({ className }: { className?: string }) {
           cx={r2(p.x)}
           cy={r2(p.y)}
           r={p.z > 0.2 ? 3 : 2}
-          fill={p.z > 0 ? "#BFDBFE" : "#60A5FA"}
+          fill={p.z > 0 ? "#C9FBF6" : "#2AEBCC"}
           opacity={r2(0.35 + (p.z + 1) * 0.32)}
         />
       ))}

@@ -43,8 +43,8 @@ export function SolutionTemplate({ solution: s, studies }: { solution: Solution;
         aside={
           <div className="rounded-[20px] border border-line bg-card/60 p-8">
             <div className="flex items-center justify-between">
-              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-blue-soft">{pillar.label}</span>
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-bg text-blue-soft">
+              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-accent-soft">{pillar.label}</span>
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-bg text-accent-soft">
                 <Icon name={s.icon} className="h-5 w-5" />
               </span>
             </div>
@@ -52,7 +52,7 @@ export function SolutionTemplate({ solution: s, studies }: { solution: Solution;
             <ul className="space-y-2.5 border-t border-line pt-6">
               {s.deliverables.slice(0, 4).map((d) => (
                 <li key={d} className="flex items-start gap-2.5 text-sm text-fg/85">
-                  <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-blue" aria-hidden="true" /> {d}
+                  <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" aria-hidden="true" /> {d}
                 </li>
               ))}
             </ul>
@@ -78,7 +78,7 @@ export function SolutionTemplate({ solution: s, studies }: { solution: Solution;
         <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {s.problems.map((p, i) => (
             <Reveal as="li" key={p.title} delay={i * 70} className="rounded-[16px] border border-line bg-card/60 p-6">
-              <AlertTriangle className="h-5 w-5 text-purple-soft" aria-hidden="true" />
+              <AlertTriangle className="h-5 w-5 text-accent-2-soft" aria-hidden="true" />
               <h3 className="mt-4 text-lg font-semibold tracking-tight">{p.title}</h3>
               <p className="mt-2 text-[0.95rem] leading-relaxed text-muted">{p.description}</p>
             </Reveal>
@@ -95,7 +95,7 @@ export function SolutionTemplate({ solution: s, studies }: { solution: Solution;
           <ol className="space-y-3">
             {s.approach.map((a, i) => (
               <Reveal as="li" key={a.title} delay={i * 70} className="grid grid-cols-[auto_1fr] gap-5 rounded-[16px] border border-line bg-card/60 p-6">
-                <span className="font-mono text-sm text-blue-soft">0{i + 1}</span>
+                <span className="font-mono text-sm text-accent-soft">0{i + 1}</span>
                 <div>
                   <h3 className="text-lg font-semibold tracking-tight">{a.title}</h3>
                   <p className="mt-1.5 leading-relaxed text-muted">{a.description}</p>
@@ -114,7 +114,7 @@ export function SolutionTemplate({ solution: s, studies }: { solution: Solution;
             <Reveal as="ul" className="mt-8 space-y-3">
               {s.deliverables.map((d) => (
                 <li key={d} className="flex items-start gap-3 rounded-xl border border-line bg-card/60 px-4 py-3.5 text-[0.95rem]">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue" aria-hidden="true" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
                   {d}
                 </li>
               ))}
@@ -185,7 +185,7 @@ export function SolutionTemplate({ solution: s, studies }: { solution: Solution;
       {/* 11 · FAQs */}
       <SectionContainer tone={studies.length ? "default" : "alt"} labelledBy="faq-title">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
-          <SectionHeading id="faq-title" eyebrow="FAQs" title="Questions, answered" description="Can't find what you're looking for? Ask us directly — we reply to every enquiry." />
+          <SectionHeading id="faq-title" eyebrow="FAQs" title="Questions, answered" description="Can't find what you're looking for? Ask us directly." />
           <Reveal>
             <Accordion items={s.faqs} />
           </Reveal>

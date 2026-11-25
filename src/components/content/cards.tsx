@@ -57,9 +57,9 @@ export function IndustryCard({ industry }: { industry: Industry }) {
 }
 
 /* ───────── ProductCard ───────── */
-const statusMap: Record<Product["status"], { label: string; tone: "success" | "blue" | "muted" }> = {
+const statusMap: Record<Product["status"], { label: string; tone: "success" | "accent" | "muted" }> = {
   live: { label: "Live", tone: "success" },
-  beta: { label: "Beta", tone: "blue" },
+  beta: { label: "Beta", tone: "accent" },
   "coming-soon": { label: "Coming Soon", tone: "muted" },
 };
 
@@ -104,13 +104,13 @@ export function ProductCard({ product }: { product: Product }) {
             href={product.website}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-blue-soft hover:text-fg"
+            className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-accent-soft hover:text-fg"
           >
             Explore {product.name} <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
           </a>
         ) : (
-          <Link href={`/contact/?path=business&interest=${product.slug}`} className="mt-5 text-sm font-medium text-blue-soft hover:text-fg">
-            {product.status === "coming-soon" ? "Request early access →" : "Learn more →"}
+          <Link href={`/contact/?path=business&interest=${product.slug}`} className="mt-5 text-sm font-medium text-accent-soft hover:text-fg">
+            {product.status === "coming-soon" ? "Ask about this product →" : "Learn more →"}
           </Link>
         )}
       </div>
@@ -133,7 +133,7 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
         />
       </div>
       <div className="flex flex-1 flex-col p-6">
-        <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-blue-soft">{study.industry}</span>
+        <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-accent-soft">{study.industry}</span>
         <h3 className="mt-3 text-xl font-semibold tracking-tight">
           <Link href={`/work/${study.slug}/`} className={stretched}>
             {study.title}
@@ -147,7 +147,7 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
             </li>
           ))}
         </ul>
-        <span className="mt-5 text-sm font-medium text-blue-soft group-hover:text-fg">View case study →</span>
+        <span className="mt-5 text-sm font-medium text-accent-soft group-hover:text-fg">View case study →</span>
       </div>
     </article>
   );
@@ -183,7 +183,7 @@ export function BlogCard({
       </div>
       <div className={cn("flex flex-1 flex-col p-6", featured && "lg:p-10")}>
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-subtle">
-          <span className="font-mono uppercase tracking-[0.12em] text-blue-soft">{article.category}</span>
+          <span className="font-mono uppercase tracking-[0.12em] text-accent-soft">{article.category}</span>
           <span aria-hidden="true">·</span>
           <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
           <span aria-hidden="true">·</span>
@@ -199,7 +199,7 @@ export function BlogCard({
         <p className={cn("mt-3 flex-1 leading-relaxed text-muted", featured ? "text-base" : "text-[0.925rem] line-clamp-3")}>
           {article.excerpt}
         </p>
-        <span className="mt-5 text-sm font-medium text-blue-soft group-hover:text-fg">Read article →</span>
+        <span className="mt-5 text-sm font-medium text-accent-soft group-hover:text-fg">Read article →</span>
       </div>
     </article>
   );

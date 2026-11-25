@@ -127,7 +127,7 @@ export const growSolutions: Solution[] = [
       { title: "Local lead generation", description: "Geo-targeted campaigns for service businesses feeding a fast follow-up process." },
     ],
     technologies: ["Google Ads", "Meta Ads Manager", "LinkedIn Campaign Manager", "GA4", "Google Tag Manager", "Server-side GTM", "Meta Conversions API", "Looker Studio"],
-    engagementNote: "We start with a two-week audit and tracking fix before changing budgets, so optimisation decisions rest on accurate data.",
+    engagementNote: "We start with an audit and tracking fix before changing budgets, so optimisation decisions rest on accurate data.",
     faqs: [
       { question: "Which platform should we advertise on?", answer: "Wherever your customers show intent or attention at a cost your margins support. For most B2B that's search and LinkedIn; for consumer brands it's usually Meta and Google." },
       { question: "Do you charge a percentage of ad spend?", answer: "We prefer a fixed management fee tied to scope, so our advice isn't influenced by how much you spend." },
@@ -223,7 +223,7 @@ export const growSolutions: Solution[] = [
     intro: {
       heading: "Lead generation is a system",
       body: [
-        "Generating leads is only half the job. Research consistently shows response speed and follow-up discipline have a major effect on conversion, yet many businesses take hours or days to reply.",
+        "Generating leads is only half the job. Response speed and follow-up discipline matter just as much, and slow replies let good opportunities go cold.",
         "We design the full system — from targeting to the first sales conversation — and automate the steps where speed matters most.",
       ],
     },

@@ -10,12 +10,12 @@ export function ArticleCover({ variant, label, className }: { variant: 0 | 1 | 2
       <svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full">
         <defs>
           <linearGradient id={`ac-g-${variant}`} x1="0" y1="0" x2="1" y2="1">
-            <stop stopColor="#3B82F6" />
-            <stop offset="1" stopColor="#8B5CF6" />
+            <stop stopColor="#14CBD4" />
+            <stop offset="1" stopColor="#059FDB" />
           </linearGradient>
           <radialGradient id={`ac-r-${variant}`} cx="70%" cy="30%" r="70%">
-            <stop stopColor="#3B82F6" stopOpacity="0.35" />
-            <stop offset="1" stopColor="#3B82F6" stopOpacity="0" />
+            <stop stopColor="#14CBD4" stopOpacity="0.35" />
+            <stop offset="1" stopColor="#14CBD4" stopOpacity="0" />
           </radialGradient>
           <pattern id={`ac-p-${variant}`} width="20" height="20" patternUnits="userSpaceOnUse">
             <path d="M20 0H0V20" fill="none" stroke="#263247" strokeWidth="0.6" />
@@ -30,7 +30,7 @@ export function ArticleCover({ variant, label, className }: { variant: 0 | 1 | 2
             {[[60, 170], [200, 80], [340, 70], [220, 120]].map(([x, y]) => (
               <g key={`${x}-${y}`}>
                 <circle cx={x} cy={y} r="10" fill="#0B1120" />
-                <circle cx={x} cy={y} r="4" fill="#93C5FD" stroke="none" />
+                <circle cx={x} cy={y} r="4" fill="#7FE9EA" stroke="none" />
               </g>
             ))}
           </g>
@@ -40,7 +40,7 @@ export function ArticleCover({ variant, label, className }: { variant: 0 | 1 | 2
             {[0, 1, 2, 3].map((i) => (
               <rect key={i} x={130 + i * 14} y={40 + i * 14} width={140 - i * 28} height={160 - i * 28} rx="14" stroke={i === 3 ? `url(#ac-g-${variant})` : "#33415A"} transform={`rotate(${i * 6} 200 120)`} />
             ))}
-            <circle cx="200" cy="120" r="6" fill="#A78BFA" />
+            <circle cx="200" cy="120" r="6" fill="#2AEBCC" />
           </g>
         )}
         {variant === 2 && (
@@ -57,7 +57,7 @@ export function ArticleCover({ variant, label, className }: { variant: 0 | 1 | 2
             {[[40, 200], [120, 160], [190, 170], [260, 110], [360, 50]].map(([x, y], i) => (
               <g key={i}>
                 <line x1={x} y1={y} x2={x} y2={220} stroke="#263247" strokeDasharray="3 4" />
-                <circle cx={x} cy={y} r="4" fill={i === 4 ? "#A78BFA" : "#93C5FD"} />
+                <circle cx={x} cy={y} r="4" fill={i === 4 ? "#2AEBCC" : "#7FE9EA"} />
               </g>
             ))}
           </g>

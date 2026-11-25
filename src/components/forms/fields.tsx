@@ -27,7 +27,7 @@ export function Field({
       <label htmlFor={htmlFor} className="text-sm font-medium text-fg/90">
         {label}
         {required ? (
-          <span className="ml-0.5 text-blue-soft" aria-hidden="true">
+          <span className="ml-0.5 text-accent-soft" aria-hidden="true">
             *
           </span>
         ) : (
@@ -80,7 +80,7 @@ export function ChipGroup({
       <legend className="mb-1 text-sm font-medium text-fg/90">
         {label}
         {required && (
-          <span className="ml-0.5 text-blue-soft" aria-hidden="true">
+          <span className="ml-0.5 text-accent-soft" aria-hidden="true">
             *
           </span>
         )}
@@ -93,8 +93,8 @@ export function ChipGroup({
             <label
               key={opt}
               className={cn(
-                "inline-flex min-h-10 cursor-pointer select-none items-center gap-2 rounded-full border px-3.5 py-2 text-sm transition-colors has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-blue",
-                on ? "border-blue/60 bg-blue/15 text-fg" : "border-line bg-bg-2 text-muted hover:border-line-strong hover:text-fg",
+                "inline-flex min-h-10 cursor-pointer select-none items-center gap-2 rounded-full border px-3.5 py-2 text-sm transition-colors has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-accent",
+                on ? "border-accent/60 bg-accent/15 text-fg" : "border-line bg-bg-2 text-muted hover:border-line-strong hover:text-fg",
               )}
             >
               <input
@@ -103,8 +103,8 @@ export function ChipGroup({
                 checked={on}
                 onChange={() => onChange(on ? value.filter((v) => v !== opt) : [...value, opt])}
               />
-              <span className={cn("flex h-4 w-4 items-center justify-center rounded border", on ? "border-blue bg-blue" : "border-line-strong")} aria-hidden="true">
-                {on && <Check className="h-3 w-3 text-white" strokeWidth={3} />}
+              <span className={cn("flex h-4 w-4 items-center justify-center rounded border", on ? "border-accent bg-accent" : "border-line-strong")} aria-hidden="true">
+                {on && <Check className="h-3 w-3 text-bg" strokeWidth={3} />}
               </span>
               {opt}
             </label>

@@ -83,11 +83,11 @@ export function InquiryExperience() {
               onKeyDown={(e) => onKey(e, i)}
               className={cn(
                 "group relative flex items-start gap-4 overflow-hidden rounded-[16px] border p-5 text-left transition-[border-color,background-color] duration-300",
-                on ? "border-blue/60 bg-blue/[0.08]" : "border-line bg-card/60 hover:border-line-strong",
+                on ? "border-accent/60 bg-accent/[0.08]" : "border-line bg-card/60 hover:border-line-strong",
               )}
             >
-              {on && <motion.span layoutId="tab-glow" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-blue via-purple to-transparent" aria-hidden="true" />}
-              <span className={cn("flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border", on ? "border-blue/50 bg-blue/15 text-blue-soft" : "border-line bg-bg text-muted")}>
+              {on && <motion.span layoutId="tab-glow" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-accent via-accent-2 to-transparent" aria-hidden="true" />}
+              <span className={cn("flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border", on ? "border-accent/50 bg-accent/15 text-accent-soft" : "border-line bg-bg text-muted")}>
                 <p.icon className="h-5 w-5" aria-hidden="true" />
               </span>
               <span>

@@ -47,7 +47,6 @@ export const metadata: Metadata = {
     description: site.description,
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
-  icons: { icon: [{ url: "/icon.svg", type: "image/svg+xml" }], apple: "/brand/zaqron-app-icon.svg" },
   ...(process.env.GOOGLE_SITE_VERIFICATION
     ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
     : {}),

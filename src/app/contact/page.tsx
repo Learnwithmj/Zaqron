@@ -10,7 +10,7 @@ import Link from "next/link";
 export const metadata = buildMetadata({
   title: "Contact — Let's Build What's Next",
   description:
-    "Contact Zaqron. Startups, established businesses and agency partners — choose your path and tell us about your project. We reply within one business day.",
+    "Contact Zaqron. Startups, established businesses and agency partners — choose your path and tell us about your project.",
   path: "/contact",
 });
 
@@ -38,7 +38,7 @@ export default function ContactPage() {
           <aside className="space-y-4 lg:pt-1" aria-label="Other ways to reach us">
             <div className="rounded-[16px] border border-line bg-card/60 p-6">
               <h3 className="font-semibold">Prefer email?</h3>
-              <a href={`mailto:${site.email}`} className="mt-3 flex items-center gap-2.5 text-blue-soft hover:text-fg">
+              <a href={`mailto:${site.email}`} className="mt-3 flex items-center gap-2.5 text-accent-soft hover:text-fg">
                 <Mail className="h-4 w-4" aria-hidden="true" /> {site.email}
               </a>
               {site.phone && (
@@ -47,24 +47,24 @@ export default function ContactPage() {
                 </a>
               )}
               <p className="mt-4 text-sm text-muted">
-                Partnerships: <a href={`mailto:${site.partnersEmail}`} className="text-fg/90 hover:text-blue-soft">{site.partnersEmail}</a>
+                Partnerships: <a href={`mailto:${site.partnersEmail}`} className="text-fg/90 hover:text-accent-soft">{site.partnersEmail}</a>
               </p>
             </div>
             <div className="rounded-[16px] border border-line bg-card/60 p-6">
               <h3 className="flex items-center gap-2 font-semibold">
-                <CalendarClock className="h-4 w-4 text-blue-soft" aria-hidden="true" /> Rather talk live?
+                <CalendarClock className="h-4 w-4 text-accent-soft" aria-hidden="true" /> Rather talk live?
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">Book a free 30-minute strategy call with our team.</p>
-              <Link href="/book-a-call/" className="mt-3 inline-block text-sm font-medium text-blue-soft hover:text-fg">
+              <p className="mt-2 text-sm leading-relaxed text-muted">Book a strategy call to talk through your project.</p>
+              <Link href="/book-a-call/" className="mt-3 inline-block text-sm font-medium text-accent-soft hover:text-fg">
                 Book a strategy call →
               </Link>
             </div>
             <ul className="space-y-3 rounded-[16px] border border-line bg-card/60 p-6 text-sm text-muted">
               <li className="flex gap-2.5">
-                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-blue-soft" aria-hidden="true" /> We aim to reply within one business day.
+                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-accent-soft" aria-hidden="true" /> We reply to enquiries by email.
               </li>
               <li className="flex gap-2.5">
-                <Globe2 className="mt-0.5 h-4 w-4 shrink-0 text-blue-soft" aria-hidden="true" /> Working with clients in {site.markets.join(", ")} and beyond.
+                <Globe2 className="mt-0.5 h-4 w-4 shrink-0 text-accent-soft" aria-hidden="true" /> Available to businesses in {site.markets.join(", ")} and other markets.
               </li>
             </ul>
           </aside>

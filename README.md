@@ -47,11 +47,11 @@ All copy lives in typed data files — pages are templates.
 | Case studies, products, testimonials, team, open roles | `src/content/collections.ts` |
 | Process steps | `src/content/process.ts` |
 
-**Honest-content rules (enforced by design):** case studies, products, testimonials, team and client logos ship **empty**. Sections that depend on them show a designed empty state or hide themselves (testimonials, team) until real, permissioned entries are added. Testimonials need `verified: true`; case-study clients need `permissionConfirmed: true`. Add an entry and the homepage, listing pages, related-work blocks, sitemap and `/work/[slug]` page update automatically.
+**Content rules:** case studies, products, testimonials, team and client logos ship **empty**. Sections that depend on them show a designed empty state or hide themselves (testimonials, team) until real, permissioned entries are added. Testimonials need `verified: true`; case-study clients need `permissionConfirmed: true`. Add an entry and the homepage, listing pages, related-work blocks, sitemap and `/work/[slug]` page update automatically.
 
 ## Brand assets
 
-`public/brand/` — symbol (accent / white / dark), horizontal logo (accent / white / dark), wordmark, app icon and favicon, all SVG. The React source is `src/components/brand/Logo.tsx`; static files are generated from `scripts/generate-brand.mjs`. To replace the identity, edit both and run `npm run brand`.
+`public/brand/` — symbol (accent / white / dark), horizontal logo (accent / white / dark), wordmark, app icon and favicon, all SVG. All geometry lives in `src/components/brand/geometry.mjs`; edit it and run `npm run brand`.
 
 ## Integrations
 
@@ -115,5 +115,5 @@ Run behind HTTPS (HSTS is sent). With multiple instances, configure Upstash so r
 - [ ] Confirm `hello@`, `partners@` and `careers@zaqron.com` mailboxes exist (or override via env).
 - [ ] Add real social profiles, phone and legal entity name (optional, only if real).
 - [ ] **Legal review:** have the Privacy Policy and Terms reviewed for each market (GDPR / UK GDPR, India DPDP Act, CCPA, UAE PDPL) and set governing law. If GA4 is enabled for UK/EU visitors, add a consent banner.
-- [ ] Optionally commission a professional review of the logo (the delivered identity is original and production-usable; trademark clearance is the owner's responsibility).
+- [ ] Confirm trademark clearance for the logo.
 - [ ] Add real case studies, products, testimonials and team as they become available.

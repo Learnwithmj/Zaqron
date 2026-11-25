@@ -59,7 +59,7 @@ export function TrustSection() {
                 aria-hidden={i >= capabilities.length ? true : undefined}
                 className="flex items-center gap-2 whitespace-nowrap rounded-full border border-line bg-card/60 px-4 py-2 font-mono text-[12px] text-muted"
               >
-                <span className="h-1 w-1 rounded-full bg-blue/70" aria-hidden="true" />
+                <span className="h-1 w-1 rounded-full bg-accent/70" aria-hidden="true" />
                 {c}
               </li>
             ))}

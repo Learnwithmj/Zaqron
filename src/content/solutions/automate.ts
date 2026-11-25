@@ -63,7 +63,7 @@ export const automateSolutions: Solution[] = [
     engagementNote: "Automation engagements start with a short audit that ranks opportunities by value and risk, so the first automation pays for the next.",
     faqs: [
       { question: "Is our data safe with AI models?", answer: "We design for data minimisation, use providers' business tiers that don't train on your data, and keep sensitive processing within your infrastructure where required." },
-      { question: "Will automation replace our team?", answer: "Our goal is to remove repetitive work so your team can focus on customers, judgement and growth. Most clients redeploy time rather than reduce headcount." },
+      { question: "Will automation replace our team?", answer: "Our goal is to remove repetitive work so your team can focus on customers, judgement and growth. How you use the time saved is your decision." },
       { question: "What if the AI gets something wrong?", answer: "High-impact steps include human review, confidence thresholds and audit logs. Automations fail safely and alert a person when they're unsure." },
       { question: "Do we need a big budget to start?", answer: "No. A single well-chosen automation is often a small, fixed-scope project that proves value quickly." },
     ],

@@ -1,76 +1,83 @@
-// Generates every ZAQRON logo variant into /public/brand from a single geometry definition.
-// Run: node scripts/generate-brand.mjs
-// The React component src/components/brand/Logo.tsx uses the same geometry.
+// Generates every ZAQRON logo file in /public/brand from src/components/brand/geometry.mjs.
+// Run: npm run brand
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import sharp from "sharp"; // installed with Next.js
+import { COLORS, GRADIENTS, SYMBOL_BOTTOM, SYMBOL_FOLD, SYMBOL_TOP, SYMBOL_VIEWBOX, TAGLINE, LOCKUP_VIEWBOX, WORDMARK, WORDMARK_VIEWBOX } from "../src/components/brand/geometry.mjs";
 
 const out = join(process.cwd(), "public", "brand");
 mkdirSync(out, { recursive: true });
 
-const BLUE = "#3B82F6";
-const PURPLE = "#8B5CF6";
-const WHITE = "#F8FAFC";
-const DARK = "#080B14";
-
-// ── Symbol: "Linked Z" on a 48×48 grid (180° rotationally symmetric) ──
-const symbol = (stroke, nodeA, nodeB) => `
-  <path d="M16 12H34L14 36H32" fill="none" stroke="${stroke}" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="8.5" cy="12" r="3.75" fill="${nodeA}"/>
-  <circle cx="39.5" cy="36" r="3.75" fill="${nodeB}"/>`;
-
-const gradDef = (id) => `<defs><linearGradient id="${id}" x1="8" y1="10" x2="40" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="${BLUE}"/><stop offset="1" stop-color="${PURPLE}"/></linearGradient></defs>`;
-
-// ── Wordmark: geometric stroke letters, cap height 20, stroke 3.2 ──
-const wordmark = (color) => `
-  <g fill="none" stroke="${color}" stroke-width="3.2" stroke-linejoin="round">
-    <path d="M0 1.6H14L0 18.4H14"/>
-    <path d="M21.6 20L26.5 1.6H29.5L34.4 20M24.2 13H31.8"/>
-    <circle cx="52" cy="10" r="8.4"/><path d="M55 13L61.5 19.5"/>
-    <path d="M70.6 20V1.6H77.5A4.9 4.9 0 0 1 77.5 11.4H70.6M77 11.4L82.6 20"/>
-    <circle cx="100" cy="10" r="8.4"/>
-    <path d="M117.6 20V1.6L130.4 18.4V0"/>
-  </g>`;
-
+const stop = ([offset, color, opacity]) => `<stop offset="${offset}" stop-color="${color}" stop-opacity="${opacity}"/>`;
+const gradient = (g) =>
+  `<linearGradient id="${g.key}" gradientUnits="userSpaceOnUse" x1="${g.x1}" y1="${g.y1}" x2="${g.x2}" y2="${g.y2}">${g.stops.map(stop).join("")}</linearGradient>`;
+const accent =
+  `<defs>${GRADIENTS.map(gradient).join("")}</defs><path d="${SYMBOL_TOP}" fill="url(#top)"/>` +
+  `<path d="${SYMBOL_BOTTOM}" fill="url(#bottom)"/><path d="${SYMBOL_FOLD}" fill="url(#fold)"/>`;
+const flat = (c) => `<path d="${SYMBOL_TOP}${SYMBOL_BOTTOM}" fill="${c}"/>`;
+const word = (c) => `<path d="${WORDMARK}" fill="${c}" fill-rule="evenodd"/>`;
+// Wordmark + tagline; the tagline is tinted only on the accent logo
+const lockup = (c, tint = c) => word(c) + `<path d="${TAGLINE}" fill="${tint}"/>`;
 const svg = (viewBox, body, title) =>
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}" role="img" aria-label="${title}"><title>${title}</title>${body}</svg>\n`;
 
+const horizontal = (sym, c, tint) =>
+  svg("0 0 5360 1000", `<g transform="translate(-30 -25)">${sym}</g><g transform="translate(1380 76) scale(2)">${lockup(c, tint)}</g>`, "ZAQRON");
+const stacked = (sym, c, tint) =>
+  svg("0 0 3620 1890", `<g transform="translate(1215 -50)">${sym}</g><g transform="translate(-28 1130) scale(1.85)">${lockup(c, tint)}</g>`, "ZAQRON");
+const icon = svg(
+  "0 0 512 512",
+  `<rect width="512" height="512" rx="112" fill="${COLORS.dark}"/><g transform="translate(48 72) scale(0.35)">${accent}</g>`,
+  "Zaqron",
+);
+
+// Favicon: larger symbol and tighter tile so it stays legible at 16px
+const favicon = svg(
+  "0 0 512 512",
+  `<rect width="512" height="512" rx="96" fill="${COLORS.dark}"/><g transform="translate(12.3 40.5) scale(0.41)">${accent}</g>`,
+  "Zaqron",
+);
+
 const files = {
-  "zaqron-symbol.svg": svg("0 0 48 48", gradDef("zg") + symbol("url(#zg)", BLUE, PURPLE), "Zaqron symbol"),
-  "zaqron-symbol-white.svg": svg("0 0 48 48", symbol(WHITE, WHITE, WHITE), "Zaqron symbol"),
-  "zaqron-symbol-dark.svg": svg("0 0 48 48", symbol(DARK, DARK, DARK), "Zaqron symbol"),
-  "zaqron-wordmark.svg": svg("-1 -1 134 23", wordmark(WHITE), "ZAQRON"),
-  "zaqron-wordmark-dark.svg": svg("-1 -1 134 23", wordmark(DARK), "ZAQRON"),
-  // Blue accent version (primary, for dark backgrounds)
-  "zaqron-logo-horizontal.svg": svg(
-    "0 0 200 48",
-    gradDef("zg") + symbol("url(#zg)", BLUE, PURPLE) + `<g transform="translate(60 13.5) scale(1.05)">${wordmark(WHITE)}</g>`,
-    "ZAQRON",
-  ),
-  "zaqron-logo-white.svg": svg(
-    "0 0 200 48",
-    symbol(WHITE, WHITE, WHITE) + `<g transform="translate(60 13.5) scale(1.05)">${wordmark(WHITE)}</g>`,
-    "ZAQRON",
-  ),
-  // Dark version, for light backgrounds
-  "zaqron-logo-dark.svg": svg(
-    "0 0 200 48",
-    gradDef("zg") + symbol("url(#zg)", "#2563EB", "#7C3AED").replace(/#3B82F6/g, "#2563EB") +
-      `<g transform="translate(60 13.5) scale(1.05)">${wordmark(DARK)}</g>`,
-    "ZAQRON",
-  ),
-  // App icon / favicon: symbol on rounded tile
-  "zaqron-app-icon.svg": svg(
-    "0 0 512 512",
-    gradDef("zg") +
-      `<rect width="512" height="512" rx="112" fill="${DARK}"/><rect x="1.5" y="1.5" width="509" height="509" rx="110.5" fill="none" stroke="#263247" stroke-width="3"/>` +
-      `<g transform="translate(48 48) scale(8.667)">${symbol("url(#zg)", BLUE, PURPLE)}</g>`,
-    "Zaqron",
-  ),
+  "zaqron-symbol.svg": svg(SYMBOL_VIEWBOX, accent, "Zaqron symbol"),
+  "zaqron-symbol-white.svg": svg(SYMBOL_VIEWBOX, flat(COLORS.white), "Zaqron symbol"),
+  "zaqron-symbol-dark.svg": svg(SYMBOL_VIEWBOX, flat(COLORS.dark), "Zaqron symbol"),
+  "zaqron-wordmark.svg": svg(WORDMARK_VIEWBOX, word(COLORS.white), "ZAQRON"),
+  "zaqron-wordmark-dark.svg": svg(WORDMARK_VIEWBOX, word(COLORS.dark), "ZAQRON"),
+  "zaqron-wordmark-tagline.svg": svg(LOCKUP_VIEWBOX, lockup(COLORS.white, COLORS.tagline), "ZAQRON"),
+  "zaqron-logo-horizontal.svg": horizontal(accent, COLORS.white, COLORS.tagline),
+  "zaqron-logo-white.svg": horizontal(flat(COLORS.white), COLORS.white),
+  "zaqron-logo-dark.svg": horizontal(flat(COLORS.dark), COLORS.dark),
+  "zaqron-logo-stacked.svg": stacked(accent, COLORS.white, COLORS.tagline),
+  "zaqron-logo-stacked-dark.svg": stacked(flat(COLORS.dark), COLORS.dark),
+  "zaqron-app-icon.svg": icon,
+  "favicon.svg": favicon,
 };
-
-files["favicon.svg"] = files["zaqron-app-icon.svg"];
-
 for (const [name, content] of Object.entries(files)) writeFileSync(join(out, name), content);
-// Next.js app icon convention
-writeFileSync(join(process.cwd(), "src", "app", "icon.svg"), files["zaqron-app-icon.svg"]);
-console.log(`Wrote ${Object.keys(files).length} brand files to public/brand + src/app/icon.svg`);
+writeFileSync(join(process.cwd(), "src", "app", "icon.svg"), favicon); // Next.js icon convention
+const png = (source, size) => sharp(Buffer.from(source), { density: 300 }).resize(size, size).png().toBuffer();
+// iOS applies its own corner mask, so the touch icon is a full square
+const square = icon.replace('rx="112"', 'rx="0"');
+writeFileSync(join(process.cwd(), "src", "app", "apple-icon.png"), await png(square, 180));
+writeFileSync(join(out, "icon-192.png"), await png(square, 192));
+writeFileSync(join(out, "icon-512.png"), await png(square, 512));
+
+// favicon.ico: PNG images at 16, 32 and 48px
+const sizes = [16, 32, 48];
+const images = await Promise.all(sizes.map((n) => png(favicon, n)));
+const head = Buffer.alloc(6 + 16 * sizes.length);
+head.writeUInt16LE(1, 2);
+head.writeUInt16LE(sizes.length, 4);
+let offset = head.length;
+sizes.forEach((n, i) => {
+  const at = 6 + 16 * i;
+  head.writeUInt8(n, at);
+  head.writeUInt8(n, at + 1);
+  head.writeUInt16LE(1, at + 4);
+  head.writeUInt16LE(32, at + 6);
+  head.writeUInt32LE(images[i].length, at + 8);
+  head.writeUInt32LE(offset, at + 12);
+  offset += images[i].length;
+});
+writeFileSync(join(process.cwd(), "src", "app", "favicon.ico"), Buffer.concat([head, ...images]));
+console.log(`Wrote ${Object.keys(files).length} brand files + src/app/icon.svg`);

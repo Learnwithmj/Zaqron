@@ -18,8 +18,8 @@ export const metadata = buildMetadata({
 const values: { title: string; text: string; icon: IconName }[] = [
   { title: "Ownership over output", text: "We care about outcomes for clients, not hours logged or tickets closed.", icon: "target" },
   { title: "Craft and pragmatism", text: "High standards, applied with judgement about what matters most right now.", icon: "pen-tool" },
-  { title: "Learn in public", text: "We share what we learn — with each other, with clients and in our writing.", icon: "sparkles" },
-  { title: "Remote-friendly, globally minded", text: "We work across time zones with clients in multiple markets.", icon: "network" },
+  { title: "Learn in public", text: "We believe in sharing what we learn, including in our writing.", icon: "sparkles" },
+  { title: "Remote-friendly, globally minded", text: "Our focus spans India, the US, the UK, the UAE and other markets.", icon: "network" },
 ];
 
 const disciplines = ["Full-stack engineering", "Mobile engineering", "AI & automation engineering", "Product & UI/UX design", "Performance marketing", "SEO & content", "CRM & business systems"];
@@ -36,7 +36,7 @@ export default function CareersPage() {
             Build what&apos;s next — <span className="text-gradient">with us.</span>
           </>
         }
-        description="We're building a team of engineers, designers, automation specialists and growth strategists who like solving real business problems."
+        description="For engineers, designers, automation specialists and growth strategists who like solving real business problems."
       />
 
       <SectionContainer labelledBy="open-roles" className="!pt-0">
@@ -62,8 +62,8 @@ export default function CareersPage() {
           ) : (
             <EmptyState
               eyebrow="No open roles right now"
-              title="We're not actively hiring — but we're always listening."
-              description="If you're exceptional at what you do and our work excites you, send us a short note with your portfolio, GitHub or LinkedIn. We keep strong profiles on file for future roles."
+              title="No roles are listed at the moment."
+              description="If you're exceptional at what you do and our work excites you, send us a short note with your portfolio, GitHub or LinkedIn."
               actions={
                 <ButtonLink href={`mailto:${site.careersEmail}?subject=${subject}`}>
                   <Mail className="h-4 w-4" aria-hidden="true" /> Send a general application
@@ -87,7 +87,7 @@ export default function CareersPage() {
         <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((v, i) => (
             <Reveal as="li" key={v.title} delay={i * 60} className="rounded-[16px] border border-line bg-card/60 p-6">
-              <Icon name={v.icon} className="h-6 w-6 text-blue-soft" />
+              <Icon name={v.icon} className="h-6 w-6 text-accent-soft" />
               <h3 className="mt-4 text-lg font-semibold">{v.title}</h3>
               <p className="mt-2 text-[0.95rem] leading-relaxed text-muted">{v.text}</p>
             </Reveal>

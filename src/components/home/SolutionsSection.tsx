@@ -31,7 +31,7 @@ export function SolutionsSection() {
           <Reveal as="li" key={p.id} delay={i * 80} className="h-full">
             <article className="group hairline-top relative flex h-full flex-col overflow-hidden rounded-[16px] border border-line bg-card/70 p-6 transition-[border-color,background-color,transform] duration-300 [--hairline-opacity:0] hover:-translate-y-1 hover:border-line-strong hover:bg-elevated/60 hover:[--hairline-opacity:1] lg:p-7">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-blue-soft">
+                <span className="font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-accent-soft">
                   <span className="text-subtle">0{i + 1} / </span>
                   {p.label}
                 </span>
@@ -52,12 +52,12 @@ export function SolutionsSection() {
               <ul className="mt-5 space-y-2 border-t border-line/70 pt-5">
                 {p.highlights.map((h) => (
                   <li key={h} className="flex items-center gap-2.5 text-sm text-fg/85">
-                    <Check className="h-3.5 w-3.5 shrink-0 text-blue" aria-hidden="true" />
+                    <Check className="h-3.5 w-3.5 shrink-0 text-accent" aria-hidden="true" />
                     {h}
                   </li>
                 ))}
               </ul>
-              <span className="mt-auto pt-6 text-sm font-medium text-blue-soft transition-colors group-hover:text-fg">
+              <span className="mt-auto pt-6 text-sm font-medium text-accent-soft transition-colors group-hover:text-fg">
                 Explore {p.label.toLowerCase()} →
               </span>
             </article>

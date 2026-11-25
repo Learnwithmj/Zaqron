@@ -22,7 +22,7 @@ export default function NotFound() {
           </ButtonLink>
         </div>
         <p className="mt-8 text-sm text-muted">
-          Or <Link href="/contact/" className="text-blue-soft hover:text-fg">contact us</Link> and tell us what you were looking for.
+          Or <Link href="/contact/" className="text-accent-soft hover:text-fg">contact us</Link> and tell us what you were looking for.
         </p>
       </div>
     </section>

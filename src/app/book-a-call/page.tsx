@@ -8,7 +8,7 @@ import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   title: "Book a Strategy Call",
-  description: "Book a free 30-minute strategy call with Zaqron to map the fastest path for your product, automation or growth goals.",
+  description: "Book a strategy call with Zaqron to map the fastest path for your product, automation or growth goals.",
   path: "/book-a-call",
 });
 
@@ -37,7 +37,7 @@ export default function BookACallPage() {
     <>
       <PageHero
         crumbs={[{ name: "Book a Call", href: "/book-a-call/" }]}
-        eyebrow="Strategy call · 30 minutes · Free"
+        eyebrow="Strategy call"
         title={
           <>
             Book a <span className="text-gradient">strategy call.</span>
@@ -55,13 +55,13 @@ export default function BookACallPage() {
               <ul className="mt-4 space-y-3">
                 {agenda.map((a) => (
                   <li key={a} className="flex gap-3 text-sm leading-relaxed text-muted">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue" aria-hidden="true" /> {a}
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" /> {a}
                   </li>
                 ))}
               </ul>
             </div>
             <p className="text-sm text-muted">
-              Prefer email? Write to <a className="text-blue-soft hover:text-fg" href={`mailto:${site.email}`}>{site.email}</a>.
+              Prefer email? Write to <a className="text-accent-soft hover:text-fg" href={`mailto:${site.email}`}>{site.email}</a>.
             </p>
           </Reveal>
           {embed ? (

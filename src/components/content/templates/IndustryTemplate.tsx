@@ -34,8 +34,8 @@ export function IndustryTemplate({ industry: ind, studies }: { industry: Industr
           <div className="relative mx-auto flex aspect-square max-w-[360px] items-center justify-center">
             <div className="absolute inset-0 rounded-full border border-line" aria-hidden="true" />
             <div className="absolute inset-10 rounded-full border border-dashed border-line" aria-hidden="true" />
-            <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,rgb(59_130_246/0.18),transparent_65%)]" aria-hidden="true" />
-            <span className="relative flex h-28 w-28 items-center justify-center rounded-3xl border border-line bg-card text-blue-soft shadow-[0_0_60px_-12px_rgb(59_130_246/0.5)]">
+            <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,rgb(20_203_212/0.18),transparent_65%)]" aria-hidden="true" />
+            <span className="relative flex h-28 w-28 items-center justify-center rounded-3xl border border-line bg-card text-accent-soft shadow-[0_0_60px_-12px_rgb(20_203_212/0.5)]">
               <Icon name={ind.icon} className="h-12 w-12" strokeWidth={1.3} />
             </span>
           </div>
@@ -81,7 +81,7 @@ export function IndustryTemplate({ industry: ind, studies }: { industry: Industr
                   href={`/solutions/${s.slug}/`}
                   className="group grid grid-cols-[auto_1fr_auto] items-center gap-5 rounded-[16px] border border-line bg-card/60 p-5 transition-colors hover:border-line-strong hover:bg-elevated/60 sm:p-6"
                 >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-bg text-blue-soft">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-bg text-accent-soft">
                     <Icon name={s.icon} className="h-5 w-5" />
                   </span>
                   <span>
@@ -115,7 +115,7 @@ export function IndustryTemplate({ industry: ind, studies }: { industry: Industr
         <ul className="mx-auto mt-12 grid max-w-5xl gap-4 md:grid-cols-3">
           {ind.benefits.map((b, i) => (
             <Reveal as="li" key={b.title} delay={i * 80} className="rounded-[16px] border border-line bg-card/60 p-7 text-center">
-              <span className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border border-blue/40 bg-blue/10 text-blue-soft">
+              <span className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border border-accent/40 bg-accent/10 text-accent-soft">
                 <Check className="h-5 w-5" aria-hidden="true" />
               </span>
               <h3 className="mt-4 text-lg font-semibold tracking-tight">{b.title}</h3>

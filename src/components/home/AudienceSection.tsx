@@ -57,9 +57,9 @@ export function AudienceSection() {
         {audiences.map((a, i) => (
           <Reveal as="li" key={a.title} delay={i * 70}>
             <article className="group relative flex h-full flex-col overflow-hidden rounded-[16px] border border-line bg-card/60 p-6 transition-[border-color,background-color] duration-300 hover:border-line-strong hover:bg-elevated/50 sm:p-8">
-              <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgb(59_130_246/0.14),transparent_70%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" aria-hidden="true" />
+              <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgb(20_203_212/0.14),transparent_70%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" aria-hidden="true" />
               <div className="flex items-center gap-4">
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-line bg-bg text-blue-soft">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-line bg-bg text-accent-soft">
                   <Icon name={a.icon} className="h-[22px] w-[22px]" />
                 </span>
                 <h3 className="text-2xl font-semibold tracking-tight">{a.title}</h3>
@@ -67,14 +67,14 @@ export function AudienceSection() {
               <p className="mt-6 flex flex-wrap items-center gap-3 font-display text-lg font-medium">
                 <span className="text-muted">From {a.from.toLowerCase()}</span>
                 <span className="flex h-7 w-7 items-center justify-center rounded-full border border-line bg-bg" aria-hidden="true">
-                  <ArrowRight className="h-3.5 w-3.5 text-blue" />
+                  <ArrowRight className="h-3.5 w-3.5 text-accent" />
                 </span>
                 <span className="text-gradient">to {a.to.toLowerCase()}.</span>
               </p>
               <p className="mt-4 flex-1 leading-relaxed text-muted">{a.body}</p>
               <Link
                 href={a.href}
-                className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-blue-soft after:absolute after:inset-0 after:content-[''] group-hover:text-fg"
+                className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent-soft after:absolute after:inset-0 after:content-[''] group-hover:text-fg"
               >
                 {a.cta} <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
               </Link>

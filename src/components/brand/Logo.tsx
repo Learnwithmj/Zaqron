@@ -1,13 +1,38 @@
 import { useId } from "react";
 import { cn } from "@/lib/utils";
+import {
+  COLORS,
+  GRADIENTS,
+  LOCKUP_VIEWBOX,
+  SYMBOL_BOTTOM,
+  SYMBOL_FOLD,
+  SYMBOL_TOP,
+  SYMBOL_VIEWBOX,
+  TAGLINE,
+  WORDMARK,
+} from "./geometry.mjs";
 
 /**
- * ZAQRON identity — single source of truth.
- * To rebrand, replace the geometry here and in scripts/generate-brand.mjs
- * (which writes the static SVG files in /public/brand).
+ * ZAQRON identity. Geometry and colours live in ./geometry.mjs, which also feeds
+ * scripts/generate-brand.mjs (static SVG files in /public/brand).
  */
 
 type Tone = "accent" | "white" | "dark";
+
+/** Gradient definitions, shared with the OG image */
+export function SymbolGradients({ id }: { id: string }) {
+  return (
+    <defs>
+      {GRADIENTS.map(({ key, stops, ...coords }) => (
+        <linearGradient key={key} id={`${id}-${key}`} gradientUnits="userSpaceOnUse" {...coords}>
+          {stops.map(([offset, color, opacity]) => (
+            <stop key={offset} offset={offset} stopColor={String(color)} stopOpacity={opacity} />
+          ))}
+        </linearGradient>
+      ))}
+    </defs>
+  );
+}
 
 export function LogoSymbol({
   className,
@@ -18,64 +43,43 @@ export function LogoSymbol({
   tone?: Tone;
   title?: string;
 }) {
-  const id = useId().replace(/:/g, "");
-  const stroke = tone === "accent" ? `url(#zg-${id})` : tone === "white" ? "#F8FAFC" : "#080B14";
-  const a = tone === "accent" ? "#3B82F6" : stroke;
-  const b = tone === "accent" ? "#8B5CF6" : stroke;
+  const id = `zg${useId().replace(/[^a-zA-Z0-9]/g, "")}`;
+  const accent = tone === "accent";
+  const flat = tone === "dark" ? COLORS.dark : COLORS.white;
   return (
     <svg
-      viewBox="0 0 48 48"
+      viewBox={SYMBOL_VIEWBOX}
       className={cn("shrink-0", className)}
       role={title ? "img" : undefined}
       aria-hidden={title ? undefined : true}
       aria-label={title}
     >
-      {tone === "accent" && (
-        <defs>
-          <linearGradient id={`zg-${id}`} x1="8" y1="10" x2="40" y2="38" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#3B82F6" />
-            <stop offset="1" stopColor="#8B5CF6" />
-          </linearGradient>
-        </defs>
-      )}
-      <path
-        d="M16 12H34L14 36H32"
-        fill="none"
-        stroke={stroke}
-        strokeWidth="5.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="8.5" cy="12" r="3.75" fill={a} />
-      <circle cx="39.5" cy="36" r="3.75" fill={b} />
+      {accent && <SymbolGradients id={id} />}
+      <path d={SYMBOL_TOP} fill={accent ? `url(#${id}-top)` : flat} />
+      <path d={SYMBOL_BOTTOM} fill={accent ? `url(#${id}-bottom)` : flat} />
+      {accent && <path d={SYMBOL_FOLD} fill={`url(#${id}-fold)`} />}
     </svg>
   );
 }
 
-export function Wordmark({ className, color = "currentColor" }: { className?: string; color?: string }) {
+/** Wordmark with the tagline beneath it */
+export function Wordmark({ className, tone = "accent" }: { className?: string; tone?: Tone }) {
+  const color = tone === "dark" ? COLORS.dark : COLORS.white;
   return (
-    <svg viewBox="-1 -1 134 23" className={cn("shrink-0", className)} aria-hidden="true">
-      <g fill="none" stroke={color} strokeWidth="3.2" strokeLinejoin="round">
-        <path d="M0 1.6H14L0 18.4H14" />
-        <path d="M21.6 20L26.5 1.6H29.5L34.4 20M24.2 13H31.8" />
-        <circle cx="52" cy="10" r="8.4" />
-        <path d="M55 13L61.5 19.5" />
-        <path d="M70.6 20V1.6H77.5A4.9 4.9 0 0 1 77.5 11.4H70.6M77 11.4L82.6 20" />
-        <circle cx="100" cy="10" r="8.4" />
-        <path d="M117.6 20V1.6L130.4 18.4V0" />
-      </g>
+    <svg viewBox={LOCKUP_VIEWBOX} className={cn("shrink-0", className)} aria-hidden="true">
+      <path d={WORDMARK} fill={color} fillRule="evenodd" />
+      <path d={TAGLINE} fill={tone === "accent" ? COLORS.tagline : color} />
     </svg>
   );
 }
 
-/** Horizontal lockup: symbol + wordmark */
-export function Logo({ className, tone = "accent" }: { className?: string; tone?: Tone }) {
-  const word = tone === "dark" ? "#080B14" : "#F8FAFC";
+/** Horizontal lockup: symbol + wordmark + tagline */
+export function Logo({ className, tone = "accent", size = "md" }: { className?: string; tone?: Tone; size?: "md" | "lg" }) {
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
-      <LogoSymbol tone={tone} className="h-8 w-8" />
-      <Wordmark color={word} className="h-[15px] w-auto" />
-      <span className="sr-only">ZAQRON</span>
+      <LogoSymbol tone={tone} className={size === "lg" ? "h-14 w-14" : "h-9 w-9"} />
+      <Wordmark tone={tone} className={cn("h-auto", size === "lg" ? "w-[220px]" : "w-[136px]")} />
+      <span className="sr-only">ZAQRON — Build What&apos;s Next</span>
     </span>
   );
 }

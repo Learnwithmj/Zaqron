@@ -74,7 +74,7 @@ export default async function CaseStudyPage({ params }: Props) {
             <dt className="eyebrow">Services</dt>
             <dd className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
               {study.services.map((s) => (
-                <Link key={s} href={`/solutions/${s}/`} className="text-blue-soft hover:text-fg">
+                <Link key={s} href={`/solutions/${s}/`} className="text-accent-soft hover:text-fg">
                   {getSolution(s)?.name ?? s}
                 </Link>
               ))}

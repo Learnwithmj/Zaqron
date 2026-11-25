@@ -99,7 +99,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
                                 </ul>
                               </div>
                             ))}
-                            <Link href="/solutions/" onClick={onClose} className="block text-sm font-medium text-blue-soft">
+                            <Link href="/solutions/" onClick={onClose} className="block text-sm font-medium text-accent-soft">
                               View all solutions →
                             </Link>
                           </div>
@@ -114,7 +114,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
                               </li>
                             ))}
                             <li>
-                              <Link href="/industries/" onClick={onClose} className="mt-2 block text-sm font-medium text-blue-soft">
+                              <Link href="/industries/" onClick={onClose} className="mt-2 block text-sm font-medium text-accent-soft">
                                 View all industries →
                               </Link>
                             </li>

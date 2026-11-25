@@ -10,13 +10,13 @@ const base =
   "group/btn relative inline-flex select-none items-center justify-center gap-2 whitespace-nowrap font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out active:scale-[0.98] disabled:pointer-events-none disabled:opacity-60";
 
 const variants: Record<Variant, string> = {
-  // #2563EB resting colour keeps white text above WCAG AA (see DESIGN_SYSTEM.md)
+  // Dark text on brand cyan/mint, well above WCAG AA (see DESIGN_SYSTEM.md)
   primary:
-    "rounded-[11px] bg-blue-strong text-white shadow-[inset_0_1px_0_rgb(255_255_255/0.18),0_8px_24px_-12px_rgb(59_130_246/0.7)] hover:bg-blue-deep hover:shadow-[inset_0_1px_0_rgb(255_255_255/0.18),0_10px_30px_-10px_rgb(59_130_246/0.8)]",
+    "rounded-[11px] font-semibold bg-accent-strong text-bg shadow-[inset_0_1px_0_rgb(255_255_255/0.18),0_8px_24px_-12px_rgb(20_203_212/0.7)] hover:bg-accent-deep hover:shadow-[inset_0_1px_0_rgb(255_255_255/0.18),0_10px_30px_-10px_rgb(20_203_212/0.8)]",
   secondary:
-    "rounded-[11px] border border-line-strong bg-white/[0.03] text-fg backdrop-blur hover:border-blue/60 hover:bg-white/[0.06]",
+    "rounded-[11px] border border-line-strong bg-white/[0.03] text-fg backdrop-blur hover:border-accent/60 hover:bg-white/[0.06]",
   ghost: "rounded-[11px] text-muted hover:bg-white/[0.05] hover:text-fg",
-  link: "text-blue-soft hover:text-fg",
+  link: "text-accent-soft hover:text-fg",
 };
 
 const sizes: Record<Size, string> = {

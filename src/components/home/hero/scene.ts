@@ -18,8 +18,8 @@ export function startHeroScene(canvas: HTMLCanvasElement, onFirstFrame: () => vo
   root.rotation.set(-0.42, 0.62, 0);
   scene.add(root);
 
-  const blue = new THREE.Color("#60A5FA");
-  const purple = new THREE.Color("#8B5CF6");
+  const mint = new THREE.Color("#2AEBCC");
+  const deepBlue = new THREE.Color("#059FDB");
 
   // Outer shell edges with vertical gradient
   const shellGeo = new THREE.IcosahedronGeometry(1.75, 1);
@@ -28,7 +28,7 @@ export function startHeroScene(canvas: HTMLCanvasElement, onFirstFrame: () => vo
   const colors = new Float32Array(pos.count * 3);
   const tmp = new THREE.Color();
   for (let i = 0; i < pos.count; i++) {
-    tmp.copy(blue).lerp(purple, (1.75 - pos.getY(i)) / 3.5);
+    tmp.copy(mint).lerp(deepBlue, (1.75 - pos.getY(i)) / 3.5);
     colors.set([tmp.r, tmp.g, tmp.b], i * 3);
   }
   edges.setAttribute("color", new THREE.BufferAttribute(colors, 3));
@@ -43,25 +43,25 @@ export function startHeroScene(canvas: HTMLCanvasElement, onFirstFrame: () => vo
   const vertexPositions = dedupe(shellGeo.getAttribute("position") as THREE.BufferAttribute);
   const nodes = new THREE.Points(
     new THREE.BufferGeometry().setAttribute("position", new THREE.Float32BufferAttribute(vertexPositions, 3)),
-    new THREE.PointsMaterial({ size: 0.16, map: dot, color: "#BFDBFE", transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }),
+    new THREE.PointsMaterial({ size: 0.16, map: dot, color: "#C9FBF6", transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }),
   );
   root.add(nodes);
 
   // Faint faces for depth
   const faces = new THREE.Mesh(
     shellGeo,
-    new THREE.MeshBasicMaterial({ color: "#1E3A8A", transparent: true, opacity: 0.08, side: THREE.DoubleSide, depthWrite: false }),
+    new THREE.MeshBasicMaterial({ color: "#0B4F6E", transparent: true, opacity: 0.08, side: THREE.DoubleSide, depthWrite: false }),
   );
   root.add(faces);
 
   // Inner core
   const core = new THREE.LineSegments(
     new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(0.9, 0)),
-    new THREE.LineBasicMaterial({ color: "#A78BFA", transparent: true, opacity: 0.55 }),
+    new THREE.LineBasicMaterial({ color: "#2AEBCC", transparent: true, opacity: 0.55 }),
   );
   root.add(core);
   const glow = new THREE.Sprite(
-    new THREE.SpriteMaterial({ map: dot, color: "#3B82F6", transparent: true, opacity: 0.55, depthWrite: false, blending: THREE.AdditiveBlending }),
+    new THREE.SpriteMaterial({ map: dot, color: "#14CBD4", transparent: true, opacity: 0.55, depthWrite: false, blending: THREE.AdditiveBlending }),
   );
   glow.scale.setScalar(4.2);
   scene.add(glow);
@@ -69,8 +69,8 @@ export function startHeroScene(canvas: HTMLCanvasElement, onFirstFrame: () => vo
   // Orbits with travelling packets
   const orbits: { line: THREE.LineLoop; packet: THREE.Sprite; r: number; speed: number; phase: number; tilt: THREE.Euler }[] = [];
   [
-    { r: 2.75, tilt: new THREE.Euler(1.25, 0, -0.32), speed: 0.35, color: "#93C5FD" },
-    { r: 2.35, tilt: new THREE.Euler(1.1, 0.3, 0.45), speed: -0.5, color: "#A78BFA" },
+    { r: 2.75, tilt: new THREE.Euler(1.25, 0, -0.32), speed: 0.35, color: "#7FE9EA" },
+    { r: 2.35, tilt: new THREE.Euler(1.1, 0.3, 0.45), speed: -0.5, color: "#2AEBCC" },
   ].forEach((o, idx) => {
     const pts: THREE.Vector3[] = [];
     for (let i = 0; i < 128; i++) {
@@ -79,7 +79,7 @@ export function startHeroScene(canvas: HTMLCanvasElement, onFirstFrame: () => vo
     }
     const line = new THREE.LineLoop(
       new THREE.BufferGeometry().setFromPoints(pts),
-      new THREE.LineBasicMaterial({ color: "#3B82F6", transparent: true, opacity: idx ? 0.12 : 0.2 }),
+      new THREE.LineBasicMaterial({ color: "#14CBD4", transparent: true, opacity: idx ? 0.12 : 0.2 }),
     );
     line.rotation.copy(o.tilt);
     const packet = new THREE.Sprite(
@@ -101,7 +101,7 @@ export function startHeroScene(canvas: HTMLCanvasElement, onFirstFrame: () => vo
   }
   const particles = new THREE.Points(
     new THREE.BufferGeometry().setAttribute("position", new THREE.BufferAttribute(field, 3)),
-    new THREE.PointsMaterial({ size: 0.05, map: dot, color: "#93C5FD", transparent: true, opacity: 0.7, depthWrite: false, blending: THREE.AdditiveBlending }),
+    new THREE.PointsMaterial({ size: 0.05, map: dot, color: "#7FE9EA", transparent: true, opacity: 0.7, depthWrite: false, blending: THREE.AdditiveBlending }),
   );
   scene.add(particles);
 

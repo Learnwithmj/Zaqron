@@ -47,7 +47,7 @@ export default function AboutPage() {
           <div className="relative mx-auto flex aspect-square max-w-[380px] items-center justify-center">
             <div className="anim-spin-slow absolute inset-0 rounded-full border border-dashed border-line" aria-hidden="true" />
             <div className="absolute inset-12 rounded-full border border-line" aria-hidden="true" />
-            <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,rgb(59_130_246/0.2),transparent_62%)]" aria-hidden="true" />
+            <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,rgb(20_203_212/0.2),transparent_62%)]" aria-hidden="true" />
             <LogoSymbol className="relative h-28 w-28" />
           </div>
         }
@@ -63,8 +63,8 @@ export default function AboutPage() {
               automation freelancer, a CRM nobody fully trusts. Each piece works in isolation, and the business pays for the gaps.
             </p>
             <p>
-              Zaqron was founded to close those gaps: one partner that understands technology <em>and</em> growth, designing products,
-              operations and acquisition as a single system. We work with startups finding their footing and established companies
+              Zaqron exists to close those gaps: one partner that understands technology <em>and</em> growth, designing products,
+              operations and acquisition as a single system. Our services are for startups finding their footing and established companies
               modernising how they operate — across India, the United States, the United Kingdom, the UAE and beyond.
             </p>
           </Reveal>
@@ -113,7 +113,7 @@ export default function AboutPage() {
         <ul className="mt-12 grid gap-4 sm:grid-cols-2">
           {differences.map((d, i) => (
             <Reveal as="li" key={d.title} delay={i * 60} className="flex gap-5 rounded-[16px] border border-line bg-card/60 p-7">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-line bg-bg text-blue-soft">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-line bg-bg text-accent-soft">
                 <Icon name={d.icon} className="h-5 w-5" />
               </span>
               <div>
@@ -131,7 +131,7 @@ export default function AboutPage() {
         <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {pillars.map((p, i) => (
             <Reveal as="li" key={p.id} delay={i * 60} className="rounded-[16px] border border-line bg-card/60 p-6">
-              <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-blue-soft">{p.label}</span>
+              <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent-soft">{p.label}</span>
               <h3 className="mt-3 text-lg font-semibold">{p.title}</h3>
               <ul className="mt-4 space-y-1.5 text-sm text-muted">
                 {p.highlights.map((h) => (

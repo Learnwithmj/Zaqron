@@ -79,7 +79,7 @@ export function Icon({ name, className, strokeWidth = 1.6 }: { name: IconName; c
 export function IconTile({ name, className }: { name: IconName; className?: string }) {
   return (
     <span
-      className={`inline-flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-elevated/60 text-blue-soft ${className ?? ""}`}
+      className={`inline-flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-elevated/60 text-accent-soft ${className ?? ""}`}
     >
       <Icon name={name} className="h-5 w-5" />
     </span>

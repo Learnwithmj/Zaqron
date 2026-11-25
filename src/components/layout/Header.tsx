@@ -76,7 +76,7 @@ export function Header() {
     >
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-[60] focus:rounded-lg focus:bg-blue-strong focus:px-4 focus:py-2 focus:text-white"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-[60] focus:rounded-lg focus:bg-accent-strong focus:px-4 focus:py-2 focus:text-bg"
       >
         Skip to content
       </a>
@@ -96,7 +96,7 @@ export function Header() {
                     aria-controls={`menu-${item.menu}`}
                     onClick={() => setMenu(menu === item.menu ? null : item.menu)}
                     className={cn(
-                      "flex items-center gap-1 rounded-lg px-3.5 py-2 text-[0.925rem] transition-colors",
+                      "flex items-center gap-1 whitespace-nowrap rounded-lg px-2.5 py-2 text-[0.925rem] xl:px-3.5 transition-colors",
                       menu === item.menu || isActive(item.href) ? "text-fg" : "text-muted hover:text-fg",
                     )}
                   >
@@ -113,7 +113,7 @@ export function Header() {
                     href={item.href}
                     aria-current={isActive(item.href) ? "page" : undefined}
                     className={cn(
-                      "rounded-lg px-3.5 py-2 text-[0.925rem] transition-colors",
+                      "whitespace-nowrap rounded-lg px-2.5 py-2 text-[0.925rem] xl:px-3.5 transition-colors",
                       isActive(item.href) ? "text-fg" : "text-muted hover:text-fg",
                     )}
                   >

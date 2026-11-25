@@ -39,33 +39,33 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.3fr_2.7fr] lg:gap-16">
           <div className="max-w-sm">
             <Link href="/" aria-label="ZAQRON — home" className="inline-block">
-              <Logo />
+              <Logo size="lg" />
             </Link>
             <p className="mt-5 text-[0.95rem] leading-relaxed text-muted">{site.shortDescription}</p>
             <ul className="mt-6 space-y-2.5 text-sm">
               <li>
-                <a href={`mailto:${site.email}`} className="inline-flex items-center gap-2.5 text-fg/90 hover:text-blue-soft">
-                  <Mail className="h-4 w-4 text-blue-soft" aria-hidden="true" />
+                <a href={`mailto:${site.email}`} className="inline-flex items-center gap-2.5 text-fg/90 hover:text-accent-soft">
+                  <Mail className="h-4 w-4 text-accent-soft" aria-hidden="true" />
                   {site.email}
                 </a>
               </li>
               {site.phone && (
                 <li>
-                  <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="inline-flex items-center gap-2.5 text-fg/90 hover:text-blue-soft">
-                    <Phone className="h-4 w-4 text-blue-soft" aria-hidden="true" />
+                  <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="inline-flex items-center gap-2.5 text-fg/90 hover:text-accent-soft">
+                    <Phone className="h-4 w-4 text-accent-soft" aria-hidden="true" />
                     {site.phone}
                   </a>
                 </li>
               )}
               {site.address && (
                 <li className="inline-flex items-start gap-2.5 text-muted">
-                  <MapPin className="mt-0.5 h-4 w-4 text-blue-soft" aria-hidden="true" />
+                  <MapPin className="mt-0.5 h-4 w-4 text-accent-soft" aria-hidden="true" />
                   {site.address}
                 </li>
               )}
             </ul>
             <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.14em] text-subtle">
-              Serving {site.markets.join(" · ")} & beyond
+              Focused on {site.markets.join(" · ")} & beyond
             </p>
             {socials.length > 0 && (
               <ul className="mt-6 flex gap-2" aria-label="Social media">
@@ -76,7 +76,7 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Zaqron on ${socialLabels[key]}`}
-                      className="flex h-10 w-10 items-center justify-center rounded-lg border border-line text-muted transition-colors hover:border-blue/50 hover:text-fg"
+                      className="flex h-10 w-10 items-center justify-center rounded-lg border border-line text-muted transition-colors hover:border-accent/50 hover:text-fg"
                     >
                       <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="currentColor" aria-hidden="true">
                         {socialIcons[key]}
@@ -116,7 +116,7 @@ export function Footer() {
           </div>
           <Link
             href="/contact/"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-soft transition-colors hover:text-fg"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-soft transition-colors hover:text-fg"
           >
             Start a conversation <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
           </Link>

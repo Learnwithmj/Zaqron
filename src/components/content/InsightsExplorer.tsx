@@ -37,7 +37,7 @@ export function InsightsExplorer({ items, featuredSlug }: { items: Item[]; featu
               onClick={() => setCategory(c)}
               className={cn(
                 "h-10 shrink-0 rounded-full border px-4 text-sm transition-colors",
-                category === c ? "border-blue/60 bg-blue/15 text-fg" : "border-line text-muted hover:border-line-strong hover:text-fg",
+                category === c ? "border-accent/60 bg-accent/15 text-fg" : "border-line text-muted hover:border-line-strong hover:text-fg",
               )}
             >
               {c}
@@ -86,7 +86,7 @@ export function InsightsExplorer({ items, featuredSlug }: { items: Item[]; featu
               setQuery("");
               setCategory("All");
             }}
-            className="mt-3 text-sm text-blue-soft hover:text-fg"
+            className="mt-3 text-sm text-accent-soft hover:text-fg"
           >
             Clear filters
           </button>

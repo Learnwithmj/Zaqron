@@ -28,11 +28,11 @@ export function Card({
 }
 
 /* ─────────── Badge ─────────── */
-type BadgeTone = "default" | "blue" | "purple" | "success" | "muted";
+type BadgeTone = "default" | "accent" | "mint" | "success" | "muted";
 const badgeTones: Record<BadgeTone, string> = {
   default: "border-line bg-white/[0.03] text-fg/90",
-  blue: "border-blue/30 bg-blue/10 text-blue-soft",
-  purple: "border-purple/30 bg-purple/10 text-purple-soft",
+  accent: "border-accent/30 bg-accent/10 text-accent-soft",
+  mint: "border-accent-2/30 bg-accent-2/10 text-accent-2-soft",
   success: "border-success/30 bg-success/10 text-success",
   muted: "border-line bg-transparent text-muted",
 };
@@ -115,7 +115,7 @@ export function SectionHeading({
     >
       {eyebrow && (
         <p className={cn("eyebrow mb-4 flex items-center gap-3", align === "center" && "justify-center")}>
-          <span className="h-px w-6 bg-blue/60" aria-hidden="true" />
+          <span className="h-px w-6 bg-accent/60" aria-hidden="true" />
           {eyebrow}
         </p>
       )}

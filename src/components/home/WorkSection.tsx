@@ -12,7 +12,7 @@ export function WorkSection({ studies }: { studies: CaseStudy[] }) {
           id="work-title"
           eyebrow="Selected work"
           title="Ideas Into Impact."
-          description="Real projects, real constraints and outcomes our clients have approved us to share."
+          description="Published only with client permission and verified outcomes."
         />
         {studies.length > 0 && (
           <Reveal className="shrink-0">
@@ -34,8 +34,8 @@ export function WorkSection({ studies }: { studies: CaseStudy[] }) {
         <EmptyState
           className="mt-14"
           eyebrow="Case studies"
-          title="Case studies are on their way."
-          description="We publish case studies only with client permission and verified outcomes. In the meantime, we're happy to walk you through our approach, architecture decisions and relevant work on a call."
+          title="No case studies published yet."
+          description="We publish case studies only with client permission and verified outcomes. In the meantime, we're happy to walk you through our approach and architecture thinking on a call."
           actions={
             <>
               <ButtonLink href="/book-a-call/" arrow>

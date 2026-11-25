@@ -69,7 +69,7 @@ const sections = [
     heading: "International transfers",
     body: (
       <p>
-        We work with clients in several countries, and our providers may process data outside your country. Where required, we rely on appropriate
+        Our services are offered internationally, and our providers may process data outside your country. Where required, we rely on appropriate
         safeguards such as standard contractual clauses.
       </p>
     ),

@@ -60,7 +60,7 @@ export const buildSolutions: Solution[] = [
       { title: "Modernising a legacy platform", description: "A business migrates an ageing application to a modern stack incrementally, without a risky big-bang rewrite." },
     ],
     technologies: ["Next.js", "React", "TypeScript", "Node.js", "React Native", "Flutter", "PostgreSQL", "AWS", "Vercel", "Docker"],
-    engagementNote: "Digital Engineering engagements usually start with a two-to-three week discovery sprint that produces a fixed-scope plan for the first release.",
+    engagementNote: "Digital Engineering engagements start with a discovery sprint that produces a fixed-scope plan for the first release.",
     faqs: [
       { question: "Do you work with early-stage startups or only established companies?", answer: "Both. For startups we focus on a lean, investable first release; for established businesses we focus on integration, security and change management." },
       { question: "Who owns the code and intellectual property?", answer: "You do. Repositories, cloud accounts and design files are created in your organisation or transferred to you at handover." },

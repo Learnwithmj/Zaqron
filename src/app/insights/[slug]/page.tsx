@@ -57,7 +57,7 @@ export default async function ArticlePage({ params }: Props) {
               ]}
             />
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-subtle">
-              <span className="font-mono text-xs uppercase tracking-[0.12em] text-blue-soft">{article.category}</span>
+              <span className="font-mono text-xs uppercase tracking-[0.12em] text-accent-soft">{article.category}</span>
               <span aria-hidden="true">·</span>
               <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
               <span aria-hidden="true">·</span>
@@ -102,7 +102,7 @@ export default async function ArticlePage({ params }: Props) {
           <div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-[16px] border border-line bg-card/60 p-6 sm:flex-row sm:items-center sm:p-8">
             <div>
               <p className="font-display text-xl font-semibold">Want to apply this in your business?</p>
-              <p className="mt-1 text-muted">A 30-minute call is enough to map the first step.</p>
+              <p className="mt-1 text-muted">A strategy call can help map the first step.</p>
             </div>
             <ButtonLink href="/book-a-call/" arrow className="shrink-0">
               Book a strategy call

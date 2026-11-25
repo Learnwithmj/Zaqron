@@ -31,7 +31,7 @@ export function TestimonialsSection({ items }: { items: Testimonial[] }) {
             What Our Partners Say.
           </h2>
           <div className="relative mt-12 min-h-[260px] rounded-[16px] border border-line bg-card/60 px-6 py-10 sm:px-14 sm:py-14">
-            <Quote className="mx-auto h-8 w-8 text-blue/60" aria-hidden="true" />
+            <Quote className="mx-auto h-8 w-8 text-accent/60" aria-hidden="true" />
             <AnimatePresence mode="wait" custom={dir}>
               <motion.figure
                 key={index}
@@ -54,13 +54,13 @@ export function TestimonialsSection({ items }: { items: Testimonial[] }) {
           </div>
           {verified.length > 1 && (
             <div className="mt-6 flex items-center justify-center gap-3">
-              <button type="button" onClick={() => go(-1)} aria-label="Previous testimonial" className="flex h-11 w-11 items-center justify-center rounded-full border border-line hover:border-blue/50">
+              <button type="button" onClick={() => go(-1)} aria-label="Previous testimonial" className="flex h-11 w-11 items-center justify-center rounded-full border border-line hover:border-accent/50">
                 <ChevronLeft className="h-5 w-5" />
               </button>
               <span className="font-mono text-xs text-muted">
                 {index + 1} / {verified.length}
               </span>
-              <button type="button" onClick={() => go(1)} aria-label="Next testimonial" className="flex h-11 w-11 items-center justify-center rounded-full border border-line hover:border-blue/50">
+              <button type="button" onClick={() => go(1)} aria-label="Next testimonial" className="flex h-11 w-11 items-center justify-center rounded-full border border-line hover:border-accent/50">
                 <ChevronRight className="h-5 w-5" />
               </button>
             </div>

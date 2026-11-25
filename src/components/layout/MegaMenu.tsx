@@ -27,7 +27,7 @@ export function MegaMenu({ onNavigate }: { onNavigate: () => void }) {
               onClick={onNavigate}
               className="group mb-3 flex items-center justify-between rounded-lg px-3 py-1.5"
             >
-              <span className="font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-blue-soft">
+              <span className="font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-accent-soft">
                 <span className="text-subtle">0{gi + 1} </span>
                 {group.label}
               </span>
@@ -41,7 +41,7 @@ export function MegaMenu({ onNavigate }: { onNavigate: () => void }) {
                     onClick={onNavigate}
                     className="group flex gap-3 rounded-xl p-3 transition-colors hover:bg-elevated/70"
                   >
-                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-line bg-card text-muted transition-colors group-hover:border-blue/40 group-hover:text-blue-soft">
+                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-line bg-card text-muted transition-colors group-hover:border-accent/40 group-hover:text-accent-soft">
                       <Icon name={item.icon} className="h-[18px] w-[18px]" />
                     </span>
                     <span className="min-w-0">
@@ -57,14 +57,14 @@ export function MegaMenu({ onNavigate }: { onNavigate: () => void }) {
       </div>
       <div className="mt-6 flex items-center justify-between gap-6 rounded-xl border border-line bg-card/70 px-5 py-4">
         <p className="flex items-center gap-3 text-sm text-muted">
-          <CalendarClock className="h-4 w-4 text-blue-soft" aria-hidden="true" />
-          Not sure where to start? A 30-minute strategy call maps your fastest path.
+          <CalendarClock className="h-4 w-4 text-accent-soft" aria-hidden="true" />
+          Not sure where to start? A strategy call helps map your fastest path.
         </p>
         <div className="flex items-center gap-5 text-sm">
           <Link href="/solutions/" onClick={onNavigate} className="text-muted transition-colors hover:text-fg">
             All solutions
           </Link>
-          <Link href="/book-a-call/" onClick={onNavigate} className="inline-flex items-center gap-1.5 font-medium text-blue-soft hover:text-fg">
+          <Link href="/book-a-call/" onClick={onNavigate} className="inline-flex items-center gap-1.5 font-medium text-accent-soft hover:text-fg">
             Book a strategy call <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
           </Link>
         </div>
@@ -83,7 +83,7 @@ export function IndustriesMenu({ onNavigate }: { onNavigate: () => void }) {
           <p className="mt-2 text-sm leading-relaxed text-muted">
             Every industry has its own workflows, regulations and customers. We start there.
           </p>
-          <Link href="/industries/" onClick={onNavigate} className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-blue-soft hover:text-fg">
+          <Link href="/industries/" onClick={onNavigate} className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-accent-soft hover:text-fg">
             All industries <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
           </Link>
         </div>
@@ -91,7 +91,7 @@ export function IndustriesMenu({ onNavigate }: { onNavigate: () => void }) {
           {industryMenu.map((item) => (
             <li key={item.href}>
               <Link href={item.href} onClick={onNavigate} className="group flex gap-3 rounded-xl p-3 transition-colors hover:bg-elevated/70">
-                <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-line bg-card text-muted transition-colors group-hover:border-blue/40 group-hover:text-blue-soft">
+                <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-line bg-card text-muted transition-colors group-hover:border-accent/40 group-hover:text-accent-soft">
                   <Icon name={item.icon} className="h-[18px] w-[18px]" />
                 </span>
                 <span>

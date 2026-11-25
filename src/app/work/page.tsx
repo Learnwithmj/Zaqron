@@ -48,8 +48,8 @@ export default async function WorkPage() {
         ) : (
           <EmptyState
             eyebrow="Case studies"
-            title="Our first case studies are being prepared."
-            description="We publish work only with client permission and verified outcomes, so this page fills up deliberately. Want to see how we'd approach your project? We'll walk you through our process and architecture thinking on a call."
+            title="No case studies published yet."
+            description="We publish work only with client permission and verified outcomes. Want to see how we'd approach your project? We'll walk you through our process and architecture thinking on a call."
             actions={
               <>
                 <ButtonLink href="/book-a-call/" arrow>

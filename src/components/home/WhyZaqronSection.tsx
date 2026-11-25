@@ -44,8 +44,8 @@ function SystemDiagram() {
       <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full overflow-visible">
         <defs>
           <linearGradient id="why-g" x1="0" y1="0" x2="1" y2="1">
-            <stop stopColor="#3B82F6" />
-            <stop offset="1" stopColor="#8B5CF6" />
+            <stop stopColor="#14CBD4" />
+            <stop offset="1" stopColor="#059FDB" />
           </linearGradient>
         </defs>
         <circle cx="50" cy="50" r="40" fill="none" stroke="#263247" strokeWidth="0.3" />
@@ -56,7 +56,7 @@ function SystemDiagram() {
         ))}
         <path d="M50 10 L90 50 L50 90 L10 50 Z" fill="none" stroke="url(#why-g)" strokeOpacity="0.5" strokeWidth="0.35" />
       </svg>
-      <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-3xl border border-line bg-card shadow-[0_0_60px_-10px_rgb(59_130_246/0.45)]">
+      <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-3xl border border-line bg-card shadow-[0_0_60px_-10px_rgb(20_203_212/0.45)]">
         <LogoSymbol className="h-12 w-12" />
       </div>
       {nodes.map((n) => (
@@ -93,7 +93,7 @@ export function WhyZaqronSection() {
             <Reveal as="li" key={p.title} delay={i * 70}>
               <div className="group relative grid grid-cols-[auto_1fr] gap-5 rounded-[16px] border border-line bg-card/60 p-6 transition-colors duration-300 hover:border-line-strong hover:bg-elevated/50 sm:p-7">
                 <div className="flex flex-col items-center gap-3">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-bg text-blue-soft transition-colors group-hover:border-blue/40">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-bg text-accent-soft transition-colors group-hover:border-accent/40">
                     <Icon name={p.icon} className="h-5 w-5" />
                   </span>
                   <span className="font-mono text-[11px] text-subtle">0{i + 1}</span>

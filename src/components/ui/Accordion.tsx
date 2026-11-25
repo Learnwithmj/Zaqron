@@ -35,7 +35,7 @@ export function Accordion({
                 <span
                   className={cn(
                     "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line transition-[transform,border-color,background-color] duration-300",
-                    isOpen && "rotate-45 border-blue/50 bg-blue/10",
+                    isOpen && "rotate-45 border-accent/50 bg-accent/10",
                   )}
                   aria-hidden="true"
                 >

@@ -12,7 +12,7 @@ export function ProductsSection() {
           id="products-title"
           eyebrow="Products"
           title="Tools That Make Business Simpler."
-          description="Alongside client work, Zaqron builds its own software products — focused tools that package what we learn into something any business can use."
+          description="Focused software tools from Zaqron, listed here as they become available."
         />
         {products.length > 0 && (
           <Reveal className="shrink-0">
@@ -35,8 +35,8 @@ export function ProductsSection() {
         <EmptyState
           className="mt-14"
           eyebrow="Product Lab"
-          title="Our first products are in development."
-          description="We only list products once they're real. When our first tools are ready for early users, they'll appear here with their status — Beta or Live."
+          title="No products announced yet."
+          description="We only list products once they're real. Anything we release will appear here with its status."
           actions={
             <>
               <ButtonLink href="/products/" variant="secondary">

@@ -36,7 +36,7 @@ export function FormShell({
         <CheckCircle2 className="h-12 w-12 text-success" aria-hidden="true" />
         <h3 className="mt-5 text-2xl font-semibold">Thank you — we&apos;ve received your enquiry.</h3>
         <p className="mt-3 max-w-md text-muted">
-          A member of the Zaqron team will review it and reply by email, usually within one business day.
+          We will review it and reply by email.
         </p>
         <p className="mt-2 font-mono text-xs text-subtle">Reference: {state.id.slice(0, 8)}</p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -80,11 +80,11 @@ export function FormShell({
             type="checkbox"
             {...consent}
             aria-invalid={consentError ? true : undefined}
-            className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer rounded border-line-strong bg-bg-2 accent-blue-strong"
+            className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer rounded border-line-strong bg-bg-2 accent-accent-strong"
           />
           <span>
             I agree to Zaqron processing my details to respond to this enquiry, as described in the{" "}
-            <Link href="/privacy-policy/" className="text-blue-soft underline underline-offset-2 hover:text-fg">
+            <Link href="/privacy-policy/" className="text-accent-soft underline underline-offset-2 hover:text-fg">
               Privacy Policy
             </Link>
             .
@@ -103,7 +103,7 @@ export function FormShell({
           <div>
             <p className="text-fg">{state.message}</p>
             {(state.code === "NOT_CONFIGURED" || state.code === "DELIVERY_FAILED" || state.code === "NETWORK") && (
-              <a href={`mailto:${site.email}`} className="mt-2 inline-flex items-center gap-1.5 text-blue-soft hover:text-fg">
+              <a href={`mailto:${site.email}`} className="mt-2 inline-flex items-center gap-1.5 text-accent-soft hover:text-fg">
                 <Mail className="h-3.5 w-3.5" aria-hidden="true" /> {site.email}
               </a>
             )}

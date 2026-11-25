@@ -45,7 +45,7 @@ export default function SolutionsPage() {
         <ul className="grid grid-cols-2 gap-2 sm:grid-cols-4">
           {pillars.map((p, i) => (
             <li key={p.id}>
-              <a href={`#${p.id}`} className="flex items-center justify-between rounded-xl border border-line bg-card/60 px-4 py-3 text-sm transition-colors hover:border-blue/40">
+              <a href={`#${p.id}`} className="flex items-center justify-between rounded-xl border border-line bg-card/60 px-4 py-3 text-sm transition-colors hover:border-accent/40">
                 <span>
                   <span className="font-mono text-[11px] text-subtle">0{i + 1} </span>
                   <span className="font-medium">{p.label}</span>
@@ -73,7 +73,7 @@ export default function SolutionsPage() {
                 <div className="mt-8 max-w-xs rounded-xl border border-line bg-bg/50 px-4 py-3">
                   <PillarGlyph pillar={p.id} />
                 </div>
-                <Link href={`/solutions/${p.slug}/`} className="mt-8 inline-flex items-center gap-1.5 font-medium text-blue-soft hover:text-fg">
+                <Link href={`/solutions/${p.slug}/`} className="mt-8 inline-flex items-center gap-1.5 font-medium text-accent-soft hover:text-fg">
                   Explore {p.title} <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
               </Reveal>

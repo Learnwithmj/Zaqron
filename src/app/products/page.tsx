@@ -16,8 +16,8 @@ export const metadata = buildMetadata({
 
 const statuses = [
   { tone: "success" as const, label: "Live", text: "Generally available and supported." },
-  { tone: "blue" as const, label: "Beta", text: "Usable today with early customers; evolving quickly." },
-  { tone: "muted" as const, label: "Coming Soon", text: "In active development. Early-access list open." },
+  { tone: "accent" as const, label: "Beta", text: "Usable today with early customers; evolving quickly." },
+  { tone: "muted" as const, label: "Coming Soon", text: "Announced, but not available yet." },
 ];
 
 export default function ProductsPage() {
@@ -32,7 +32,7 @@ export default function ProductsPage() {
             Tools that make business <span className="text-gradient">simpler.</span>
           </>
         }
-        description="Client work shows us the same problems again and again. The Product Lab is where we turn those patterns into focused software any business can use."
+        description="The Product Lab is the home for focused software tools from Zaqron."
       />
 
       <SectionContainer labelledBy="products-dir" className="!pt-4 lg:!pt-8">
@@ -54,13 +54,13 @@ export default function ProductsPage() {
           </>
         ) : (
           <EmptyState
-            eyebrow="In development"
-            title="Our first products are being built."
-            description="We list products only when they exist — with an honest status. The first Zaqron tools are in development and will appear here as Beta or Live when they're ready for real users."
+            eyebrow="Product Lab"
+            title="No products announced yet."
+            description="We list products only when they exist, with an honest status. Anything we release will appear here."
             actions={
               <>
                 <ButtonLink href="/contact/?path=business&interest=product-lab" arrow>
-                  Ask about early access
+                  Ask about products
                 </ButtonLink>
                 <ButtonLink href="/solutions/saas-development/" variant="secondary">
                   Build your own SaaS
